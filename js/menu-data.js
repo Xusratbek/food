@@ -43,7 +43,7 @@ const menuItems = [
     price: 250,
     priceFrom: false,
     weight: '400 грамм',
-    image: 'https://picsum.photos/seed/food-1/400/400',
+    image: "./images/data-image/trex.png",
     thumbnails: [
       'https://picsum.photos/seed/food-1a/120/120',
       'https://picsum.photos/seed/food-1b/120/120',
@@ -63,7 +63,7 @@ const menuItems = [
     price: 250,
     priceFrom: false,
     weight: '350 грамм',
-    image: 'https://picsum.photos/seed/food-2/400/400',
+    image: './images/data-image/yaits.png',
     thumbnails: [
       'https://picsum.photos/seed/food-2a/120/120',
       'https://picsum.photos/seed/food-2b/120/120',
@@ -83,7 +83,7 @@ const menuItems = [
     price: 490,
     priceFrom: false,
     weight: '300 грамм',
-    image: 'https://picsum.photos/seed/food-3/400/400',
+    image: './images/data-image/sirniki.png',
     thumbnails: [
       'https://picsum.photos/seed/food-3a/120/120',
       'https://picsum.photos/seed/food-3b/120/120',
@@ -102,7 +102,7 @@ const menuItems = [
     price: 190,
     priceFrom: true,
     weight: '250 грамм',
-    image: 'https://picsum.photos/seed/food-4/400/400',
+    image: './images/data-image/Pancakes.png',
     thumbnails: [
       'https://picsum.photos/seed/food-4a/120/120',
       'https://picsum.photos/seed/food-4b/120/120',
@@ -121,7 +121,7 @@ const menuItems = [
     price: 450,
     priceFrom: false,
     weight: '350 грамм',
-    image: 'https://picsum.photos/seed/food-5/400/400',
+    image: './images/data-image/Porridge.png',
     thumbnails: [
       'https://picsum.photos/seed/food-5a/120/120',
       'https://picsum.photos/seed/food-5b/120/120',
@@ -139,7 +139,7 @@ const menuItems = [
     price: 290,
     priceFrom: false,
     weight: '300 грамм',
-    image: 'https://picsum.photos/seed/food-6/400/400',
+    image: './images/data-image/Scramble.png',
     thumbnails: [
       'https://picsum.photos/seed/food-6a/120/120',
       'https://picsum.photos/seed/food-6b/120/120',
@@ -157,7 +157,7 @@ const menuItems = [
     price: 850,
     priceFrom: false,
     weight: '400 грамм',
-    image: 'https://picsum.photos/seed/food-7/400/400',
+    image: './images/data-image/Benedict.png',
     thumbnails: [
       'https://picsum.photos/seed/food-7a/120/120',
       'https://picsum.photos/seed/food-7b/120/120',
@@ -175,7 +175,7 @@ const menuItems = [
     price: 650,
     priceFrom: false,
     weight: '400 грамм',
-    image: 'https://picsum.photos/seed/food-8/400/400',
+    image: './images/data-image/bacon.png',
     thumbnails: [
       'https://picsum.photos/seed/food-8a/120/120',
       'https://picsum.photos/seed/food-8b/120/120',
@@ -193,7 +193,7 @@ const menuItems = [
     price: 490,
     priceFrom: false,
     weight: '380 грамм',
-    image: 'https://picsum.photos/seed/food-9/400/400',
+    image: './images/data-image/trex.png',
     thumbnails: [
       'https://picsum.photos/seed/food-9a/120/120',
       'https://picsum.photos/seed/food-9b/120/120',
@@ -211,7 +211,7 @@ const menuItems = [
     price: 890,
     priceFrom: false,
     weight: '350 грамм',
-    image: 'https://picsum.photos/seed/food-10/400/400',
+    image: './images/data-image/Salad.png',
     thumbnails: [
       'https://picsum.photos/seed/food-10a/120/120',
       'https://picsum.photos/seed/food-10b/120/120',
@@ -229,7 +229,7 @@ const menuItems = [
     price: 960,
     priceFrom: false,
     weight: '350 грамм',
-    image: 'https://picsum.photos/seed/food-11/400/400',
+    image: './images/data-image/Salad.png',
     thumbnails: [
       'https://picsum.photos/seed/food-11a/120/120',
       'https://picsum.photos/seed/food-11b/120/120',

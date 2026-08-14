@@ -34,11 +34,11 @@
             <div class="wrapper-description">
                 <nav class="wrapper-navbar">
                     <ul class="wrappper-navbar-items">
-                        <li class="wrapper-navbar-item">
-                            <a class="wrapper-navbar-link" href="#" data-open-landing data-i18n="nav.menu">Меню</a>
+                        <li  class="wrapper-navbar-item">
+                            <a href="#"  id="openMobileMenuNav"    class="wrapper-navbar-link">Меню</a>
                         </li>
                         <li>
-                            <a class="wrapper-navbar-link" href="#" data-open-delivery data-i18n="nav.delivery">Доставка</a>
+                            <a class="wrapper-navbar-link" href="delivery.html" data-i18n="nav.delivery">Доставка</a>
                         </li>
                         <li>
                             <a class="wrapper-navbar-link" href="#" data-i18n="nav.payment">Оплата</a>
@@ -241,19 +241,7 @@
             
         </div>
            
-            
-        
-        
-        
     </footer>
-
-
-    
-
-
-
-    
-   
 
     <!-- ===== Modal ===== -->
     <div class="modal-overlay" id="bookingModal">
@@ -285,10 +273,12 @@
     <!-- ===== Mobile Menu ===== -->
     <div class="mobile-menu" id="mobileMenu">
       <div class="mobile-menu-content">
-        <button class="mobile-menu-close" id="closeMobileMenu" data-i18n-aria="modal.close" aria-label="Закрыть">×</button>
     
         <div class="mobile-menu-logo">
           <img src="./images/logo.png" alt="FOOD">
+          <br>
+          <button class="mobile-menu-close" id="closeMobileMenu" data-i18n-aria="modal.close" aria-label="Закрыть">×</button>
+              
         </div>
 
         <div data-lang-select="mobile"></div>

@@ -48,22 +48,31 @@
     }
   
     // ===== Mobile Menu =====
+    
     const openMobileBtn = document.getElementById('openMobileMenu');
+    const openMobileBtnNav = document.getElementById('openMobileMenuNav'); // yangi qo'shildi
     const closeMobileBtn = document.getElementById('closeMobileMenu');
     const mobileMenu = document.getElementById('mobileMenu');
     const openModalFromMenu = document.getElementById('openModalFromMenu');
-  
-    if (openMobileBtn && closeMobileBtn && mobileMenu) {
-      openMobileBtn.addEventListener('click', (e) => {
+    
+    if (closeMobileBtn && mobileMenu) {
+      // Ikkala tugma uchun ham umumiy funksiya
+      const openMobileMenuHandler = (e) => {
         e.preventDefault();
         mobileMenu.classList.add('active');
-      });
-  
+      };
+    
+      if (openMobileBtn) {
+        openMobileBtn.addEventListener('click', openMobileMenuHandler);
+      }
+      if (openMobileBtnNav) {
+        openMobileBtnNav.addEventListener('click', openMobileMenuHandler);
+      }
+    
       closeMobileBtn.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
       });
-  
-      // Менюдан "Бронь столика" босилса
+    
       if (openModalFromMenu) {
         openModalFromMenu.addEventListener('click', () => {
           mobileMenu.classList.remove('active');

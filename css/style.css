@@ -314,9 +314,7 @@ body {
 }
 
 .mobile-menu-close {
-  position: absolute;
-  top: -40px;
-  right: 0;
+
   background: none;
   border: none;
   color: #b59571;
@@ -326,7 +324,7 @@ body {
 }
 
 .mobile-menu-logo {
-  margin-bottom: 50px;
+    padding: 20px;
 }
 
 .mobile-menu-logo img {
@@ -712,12 +710,12 @@ body {
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    border: 1px solid rgba(51, 51, 51, 0.2);
 }
 
 .food-card__image-wrap {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
+    
+    
     margin-bottom: 14px;
     background: #f8f8f8;
 }
@@ -730,9 +728,12 @@ body {
 }
 
 .food-card__body {
-    flex: 1;
+    
+    padding: 10px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .food-card__title {
@@ -748,7 +749,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
+    gap: 40px;
     margin-top: auto;
 }
 
@@ -1781,3 +1782,25 @@ body.delivery-active .product-page {
         font-size: 13px;
     }
 }
+
+.delevery{
+   
+    max-width: 1296px;
+    
+}
+
+
+.delivery-navbar-items {
+    
+    display: flex;
+    gap: 20px;
+    justify-content: end;
+    list-style: none;
+    
+}
+
+
+
+
+
+
