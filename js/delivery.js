@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const deliveryLinks = document.querySelectorAll('[data-open-delivery]');
   const menuLinks = document.querySelectorAll('[data-open-landing]');
   const dostavkaMoreBtn = document.querySelector('.dostavka-more__btn');
+  const contactsSection = document.querySelector('.contacts-section');
 
   let activeCategory = 'breakfast';
   let currentItemId = null;
@@ -19,8 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     landingSections.forEach((section) => section.classList.remove('hidden'));
     if (heroWrapper) heroWrapper.classList.remove('hidden');
-    deliveryPage.classList.add('hidden');
-    productPage.classList.add('hidden');
+    if (deliveryPage) deliveryPage.classList.add('hidden');
+    if (productPage) productPage.classList.add('hidden');
+    if (contactsSection) contactsSection.classList.remove('hidden');
     document.body.classList.remove('delivery-active');
   }
 
@@ -30,8 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     landingSections.forEach((section) => section.classList.add('hidden'));
     if (heroWrapper) heroWrapper.classList.add('hidden');
-    deliveryPage.classList.remove('hidden');
-    productPage.classList.add('hidden');
+    if (deliveryPage) deliveryPage.classList.remove('hidden');
+    if (productPage) productPage.classList.add('hidden');
+    if (contactsSection) contactsSection.classList.remove('hidden');
     document.body.classList.add('delivery-active');
     setCategory(activeCategory);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -43,16 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     currentItemId = itemId;
 
-    deliveryPage.classList.add('hidden');
-    productPage.classList.remove('hidden');
+    if (deliveryPage) deliveryPage.classList.add('hidden');
+    if (productPage) productPage.classList.remove('hidden');
     renderProduct(item);
     updateCategoryButtons();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function backToGrid() {
-    productPage.classList.add('hidden');
-    deliveryPage.classList.remove('hidden');
+    if (productPage) productPage.classList.add('hidden');
+    if (deliveryPage) deliveryPage.classList.remove('hidden');
+    if (contactsSection) contactsSection.classList.remove('hidden');
     renderGrid();
     updateCategoryButtons();
   }
@@ -60,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function setCategory(categoryId) {
     activeCategory = categoryId;
 
-    if (!productPage.classList.contains('hidden')) {
+    if (productPage && !productPage.classList.contains('hidden')) {
       backToGrid();
       return;
     }
@@ -97,10 +101,27 @@ document.addEventListener('DOMContentLoaded', () => {
     if (productCategoriesNav) productCategoriesNav.innerHTML = categoryButtons;
   }
 
+  function getCategoryItems(categoryId) {
+    const seenIds = new Set();
+    const seenTitles = new Set();
+
+    return menuItems.filter((item) => {
+      if (item.category !== categoryId) return false;
+      if (seenIds.has(item.id)) return false;
+
+      const titleKey = item.title.trim().toLowerCase();
+      if (seenTitles.has(titleKey)) return false;
+
+      seenIds.add(item.id);
+      seenTitles.add(titleKey);
+      return true;
+    });
+  }
+
   function renderGrid() {
     if (!deliveryGrid) return;
 
-    const items = menuItems.filter((item) => item.category === activeCategory);
+    const items = getCategoryItems(activeCategory);
 
     if (items.length === 0) {
       deliveryGrid.innerHTML = `
@@ -130,13 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
       )
       .join('');
 
-    deliveryGrid.querySelectorAll('.food-card__image').forEach((img) => {
-      img.addEventListener('error', () => {
-        const card = img.closest('.food-card');
-        if (card) img.src = `https://picsum.photos/seed/food-${card.dataset.id}/400/400`;
-      });
-    });
-
     deliveryGrid.querySelectorAll('.food-card').forEach((card) => {
       card.addEventListener('click', (e) => {
         if (e.target.closest('[data-add-cart]')) {
@@ -154,16 +168,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function renderProduct(item) {
-    document.getElementById('productTitle').textContent = getItemTitle(item);
-    document.getElementById('productPrice').textContent = `${item.price} ₽`;
-    document.getElementById('productWeight').textContent = formatItemWeight(item.weight);
-    document.getElementById('productMainImage').src = item.image;
-    document.getElementById('productMainImage').alt = getItemTitle(item);
-    document.getElementById('productQuantity').value = 1;
+  function getProductThumbnails(item) {
+    if (item.thumbnails?.length) return item.thumbnails;
+    return [item.image];
+  }
 
+  function renderProduct(item) {
+    const productTitle = document.getElementById('productTitle');
+    const productPrice = document.getElementById('productPrice');
+    const productWeight = document.getElementById('productWeight');
+    const productMainImage = document.getElementById('productMainImage');
+    const productQuantity = document.getElementById('productQuantity');
     const thumbsContainer = document.getElementById('productThumbs');
-    thumbsContainer.innerHTML = item.thumbnails
+    const addonsContainer = document.getElementById('productAddons');
+
+    if (!productTitle || !productPrice || !productWeight || !productMainImage) return;
+
+    productTitle.textContent = getItemTitle(item);
+    productPrice.textContent = formatItemPrice(item);
+    productWeight.textContent = formatItemWeight(item.weight);
+    productMainImage.src = item.image;
+    productMainImage.alt = getItemTitle(item);
+    if (productQuantity) productQuantity.value = 1;
+
+    if (!thumbsContainer) return;
+
+    const thumbnails = getProductThumbnails(item);
+    thumbsContainer.innerHTML = thumbnails
       .map(
         (src, index) => `
         <button type="button" class="product-thumb${index === 0 ? ' active' : ''}" data-src="${src}">
@@ -175,13 +206,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     thumbsContainer.querySelectorAll('.product-thumb').forEach((thumb) => {
       thumb.addEventListener('click', () => {
-        document.getElementById('productMainImage').src = thumb.dataset.src;
+        productMainImage.src = thumb.dataset.src;
         thumbsContainer.querySelectorAll('.product-thumb').forEach((btn) => btn.classList.remove('active'));
         thumb.classList.add('active');
       });
     });
 
-    const addonsContainer = document.getElementById('productAddons');
+    if (!addonsContainer) return;
+
     addonsContainer.innerHTML = item.addons
       .map(
         (addon) => `
@@ -199,10 +231,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function refreshDeliveryContent() {
     renderCategories();
-    if (!deliveryPage.classList.contains('hidden')) {
+    if (deliveryPage && !deliveryPage.classList.contains('hidden')) {
       renderGrid();
     }
-    if (!productPage.classList.contains('hidden') && currentItemId) {
+    if (productPage && !productPage.classList.contains('hidden') && currentItemId) {
       const current = menuItems.find((menuItem) => menuItem.id === currentItemId);
       if (current) renderProduct(current);
     }
@@ -226,6 +258,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   renderCategories();
+
+  if (deliveryGrid) {
+    const deliveryVisible = !deliveryPage || !deliveryPage.classList.contains('hidden');
+    const productHidden = !productPage || productPage.classList.contains('hidden');
+
+    if (deliveryVisible && productHidden) {
+      renderGrid();
+    }
+  }
 
   deliveryLinks.forEach((link) => {
     link.addEventListener('click', (e) => {

@@ -14,7 +14,25 @@ const menuCategories = [
   { id: 'sides', name: 'Гарниры' },
 ];
 
-function createMenuItem(id, category, title, price, priceFrom = false, weight = '300 грамм') {
+const menuImages = [
+  './images/data-image/trex.png',
+  './images/data-image/yaits.png',
+  './images/data-image/sirniki.png',
+  './images/data-image/Pancakes.png',
+  './images/data-image/Porridge.png',
+  './images/data-image/Scramble.png',
+  './images/data-image/Benedict.png',
+  './images/data-image/bacon.png',
+  './images/data-image/Salad.png',
+];
+
+function getMenuImage(id) {
+  return menuImages[(id - 1) % menuImages.length];
+}
+
+function createMenuItem(id, category, title, price, priceFrom = false, weight = '300 грамм', image) {
+  const itemImage = image || getMenuImage(id);
+
   return {
     id,
     category,
@@ -22,12 +40,8 @@ function createMenuItem(id, category, title, price, priceFrom = false, weight = 
     price,
     priceFrom,
     weight,
-    image: `https://picsum.photos/seed/food-${id}/400/400`,
-    thumbnails: [
-      `https://picsum.photos/seed/food-${id}a/120/120`,
-      `https://picsum.photos/seed/food-${id}b/120/120`,
-      `https://picsum.photos/seed/food-${id}c/120/120`,
-    ],
+    image: itemImage,
+    thumbnails: [itemImage, itemImage, itemImage],
     addons: [
       { id: 1, titleKey: 'addon.extra', price: 150 },
       { id: 2, titleKey: 'addon.sauce', price: 80 },
@@ -45,9 +59,9 @@ const menuItems = [
     weight: '400 грамм',
     image: "./images/data-image/trex.png",
     thumbnails: [
-      'https://picsum.photos/seed/food-1a/120/120',
-      'https://picsum.photos/seed/food-1b/120/120',
-      'https://picsum.photos/seed/food-1c/120/120',
+      './images/data-image/trex.png',
+      './images/data-image/trex.png',
+      './images/data-image/trex.png',
     ],
     addons: [
       { id: 1, titleKey: 'addon.shrimp', price: 450 },
@@ -65,9 +79,9 @@ const menuItems = [
     weight: '350 грамм',
     image: './images/data-image/yaits.png',
     thumbnails: [
-      'https://picsum.photos/seed/food-2a/120/120',
-      'https://picsum.photos/seed/food-2b/120/120',
-      'https://picsum.photos/seed/food-2c/120/120',
+      './images/data-image/yaits.png',
+      './images/data-image/yaits.png',
+      './images/data-image/yaits.png',
     ],
     addons: [
       { id: 1, titleKey: 'addon.shrimp', price: 450 },
@@ -85,9 +99,9 @@ const menuItems = [
     weight: '300 грамм',
     image: './images/data-image/sirniki.png',
     thumbnails: [
-      'https://picsum.photos/seed/food-3a/120/120',
-      'https://picsum.photos/seed/food-3b/120/120',
-      'https://picsum.photos/seed/food-3c/120/120',
+      './images/data-image/sirniki.png',
+      './images/data-image/sirniki.png',
+      './images/data-image/sirniki.png',
     ],
     addons: [
       { id: 1, titleKey: 'addon.sourcream', price: 60 },
@@ -104,9 +118,9 @@ const menuItems = [
     weight: '250 грамм',
     image: './images/data-image/Pancakes.png',
     thumbnails: [
-      'https://picsum.photos/seed/food-4a/120/120',
-      'https://picsum.photos/seed/food-4b/120/120',
-      'https://picsum.photos/seed/food-4c/120/120',
+      './images/data-image/Pancakes.png',
+      './images/data-image/Pancakes.png',
+      './images/data-image/Pancakes.png',
     ],
     addons: [
       { id: 1, titleKey: 'addon.sourcream', price: 60 },
@@ -123,9 +137,9 @@ const menuItems = [
     weight: '350 грамм',
     image: './images/data-image/Porridge.png',
     thumbnails: [
-      'https://picsum.photos/seed/food-5a/120/120',
-      'https://picsum.photos/seed/food-5b/120/120',
-      'https://picsum.photos/seed/food-5c/120/120',
+      './images/data-image/Porridge.png',
+      './images/data-image/Porridge.png',
+      './images/data-image/Porridge.png',
     ],
     addons: [
       { id: 1, titleKey: 'addon.honey', price: 70 },
@@ -141,9 +155,9 @@ const menuItems = [
     weight: '300 грамм',
     image: './images/data-image/Scramble.png',
     thumbnails: [
-      'https://picsum.photos/seed/food-6a/120/120',
-      'https://picsum.photos/seed/food-6b/120/120',
-      'https://picsum.photos/seed/food-6c/120/120',
+      './images/data-image/Scramble.png',
+      './images/data-image/Scramble.png',
+      './images/data-image/Scramble.png',
     ],
     addons: [
       { id: 1, titleKey: 'addon.bacon', price: 120 },
@@ -159,9 +173,9 @@ const menuItems = [
     weight: '400 грамм',
     image: './images/data-image/Benedict.png',
     thumbnails: [
-      'https://picsum.photos/seed/food-7a/120/120',
-      'https://picsum.photos/seed/food-7b/120/120',
-      'https://picsum.photos/seed/food-7c/120/120',
+      './images/data-image/Benedict.png',
+      './images/data-image/Benedict.png',
+      './images/data-image/Benedict.png',
     ],
     addons: [
       { id: 1, titleKey: 'addon.avocado', price: 150 },
@@ -177,9 +191,9 @@ const menuItems = [
     weight: '400 грамм',
     image: './images/data-image/bacon.png',
     thumbnails: [
-      'https://picsum.photos/seed/food-8a/120/120',
-      'https://picsum.photos/seed/food-8b/120/120',
-      'https://picsum.photos/seed/food-8c/120/120',
+      './images/data-image/bacon.png',
+      './images/data-image/bacon.png',
+      './images/data-image/bacon.png',
     ],
     addons: [
       { id: 1, titleKey: 'addon.avocado', price: 150 },
@@ -195,9 +209,9 @@ const menuItems = [
     weight: '380 грамм',
     image: './images/data-image/trex.png',
     thumbnails: [
-      'https://picsum.photos/seed/food-9a/120/120',
-      'https://picsum.photos/seed/food-9b/120/120',
-      'https://picsum.photos/seed/food-9c/120/120',
+      './images/data-image/trex.png',
+      './images/data-image/trex.png',
+      './images/data-image/trex.png',
     ],
     addons: [
       { id: 1, titleKey: 'addon.salmon', price: 280 },
@@ -213,9 +227,9 @@ const menuItems = [
     weight: '350 грамм',
     image: './images/data-image/Salad.png',
     thumbnails: [
-      'https://picsum.photos/seed/food-10a/120/120',
-      'https://picsum.photos/seed/food-10b/120/120',
-      'https://picsum.photos/seed/food-10c/120/120',
+      './images/data-image/Salad.png',
+      './images/data-image/Salad.png',
+      './images/data-image/Salad.png',
     ],
     addons: [
       { id: 1, titleKey: 'addon.avocado', price: 150 },
@@ -231,9 +245,9 @@ const menuItems = [
     weight: '350 грамм',
     image: './images/data-image/Salad.png',
     thumbnails: [
-      'https://picsum.photos/seed/food-11a/120/120',
-      'https://picsum.photos/seed/food-11b/120/120',
-      'https://picsum.photos/seed/food-11c/120/120',
+      './images/data-image/Salad.png',
+      './images/data-image/Salad.png',
+      './images/data-image/Salad.png',
     ],
     addons: [
       { id: 1, titleKey: 'addon.shrimp', price: 450 },

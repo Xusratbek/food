@@ -100,11 +100,13 @@
                         <span class="product-detail__price" id="productPrice"></span>
                         <span class="product-detail__weight" id="productWeight"></span>
                     </div>
-                    <div class="product-detail__quantity">
-                        <label for="productQuantity" data-i18n="delivery.quantity">Количество порций:</label>
-                        <input type="number" id="productQuantity" value="1" min="1" max="99">
+                    <div class="product-detail__actions">
+                        <div class="product-detail__quantity">
+                            <label for="productQuantity" data-i18n="delivery.quantity">Количество порций:</label>
+                            <input type="number" id="productQuantity" value="1" min="1" max="99">
+                        </div>
+                        <button type="button" class="product-detail__cart-btn" data-i18n="delivery.addToCart">В корзину</button>
                     </div>
-                    <button type="button" class="product-detail__cart-btn" data-i18n="delivery.addToCart">В корзину</button>
                     <div class="product-detail__addons">
                         <h3 class="product-detail__addons-title" data-i18n="delivery.addons">Сделать еще вкуснее</h3>
                         <div id="productAddons"></div>
@@ -142,31 +144,24 @@
         </div>
 
         <div class="menu-cards">
-            <div class="menu-card">
-                <div class="menu-card__item">
-                    <img src="./images/stoet.png" alt="Logo">
-
-                    <div class="menu-card__about">
-                        <b class="restoran-text" data-i18n="menu.main">Основное меню</b>
-                        <span class="linear"></span>
-                    </div>
-                        
-                    
+            <article class="menu-card">
+                <div class="menu-card__media">
+                    <img src="./images/stoet.png" alt="Основное меню">
                 </div>
-            </div>
-            <div class="menu-card">
-                <div class="menu-card__item">
-                    <img src="./images/document.png" alt="Logo">
-                    <div class="menu-card__about">
-                        <b class="restoran-text" data-i18n="menu.bar">Барная карта</b>
-                        <span class="linear"></span>
-                    </div>
-                        
-                    
+                <div class="menu-card__about">
+                    <b class="restoran-text" data-i18n="menu.main">Основное меню</b>
+                    <span class="linear"></span>
                 </div>
-                
-            </div>
-            
+            </article>
+            <article class="menu-card">
+                <div class="menu-card__media">
+                    <img src="./images/document.png" alt="Барная карта">
+                </div>
+                <div class="menu-card__about">
+                    <b class="restoran-text" data-i18n="menu.bar">Барная карта</b>
+                    <span class="linear"></span>
+                </div>
+            </article>
         </div>
         
     </section>
