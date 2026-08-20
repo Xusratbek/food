@@ -1,18 +1,21 @@
-const menuCategories = [
-  { id: 'breakfast', name: 'Завтраки' },
-  { id: 'raw', name: 'Raw' },
-  { id: 'cold', name: 'Холодные закуски' },
-  { id: 'bruschetta', name: 'Брускетты' },
-  { id: 'wine', name: 'К вину' },
-  { id: 'salads', name: 'Салаты' },
-  { id: 'soups', name: 'Супы' },
-  { id: 'pasta', name: 'Паста и ризотто' },
-  { id: 'meat', name: 'Мясо' },
-  { id: 'fish', name: 'Рыба' },
-  { id: 'grill', name: 'Grill' },
-  { id: 'mangal', name: 'Мангал' },
-  { id: 'sides', name: 'Гарниры' },
+export const menuCategories = [
+  { id: 1, name: 'Завтраки' },
+  { id: 2, name: 'Raw' },
+  { id: 3, name: 'Холодные закуски' },
+  { id: 4, name: 'Брускетты' },
+  { id: 5, name: 'К вину' },
+  { id: 6, name: 'Салаты' },
+  { id: 7, name: 'Супы' },
+  { id: 8, name: 'Паста и ризотто' },
+  { id: 9, name: 'Мясо' },
+  { id: 10, name: 'Рыба' },
+  { id: 11, name: 'Grill' },
+  { id: 12, name: 'Мангал' },
+  { id: 13, name: 'Гарниры' },
 ];
+
+
+
 
 const menuImages = [
   './images/data-image/trex.png',
@@ -49,10 +52,10 @@ function createMenuItem(id, category, title, price, priceFrom = false, weight = 
   };
 }
 
-const menuItems = [
+export const menuItems = [
   {
     id: 1,
-    category: 'breakfast',
+    category: 'Завтраки ',
     title: 'Яичница-глазунья из трех яиц',
     price: 250,
     priceFrom: false,
@@ -64,22 +67,22 @@ const menuItems = [
       './images/data-image/trex.png',
     ],
     addons: [
-      { id: 1, titleKey: 'addon.shrimp', price: 450 },
-      { id: 2, titleKey: 'addon.tomatoes', price: 80 },
-      { id: 3, titleKey: 'addon.bacon', price: 120 },
-      { id: 4, titleKey: 'addon.cheddar', price: 80 },
+      { id: 1, titleKey: 'Тигровые креветки 60 г', price: 450 },
+      { id: 2, titleKey: 'Томаты / паприка', price: 80 },
+      { id: 3, titleKey: 'Бекон', price: 120 },
+      { id: 4, titleKey: 'Сыр чеддер 30 г', price: 80 },
     ],
   },
   {
     id: 2,
-    category: 'breakfast',
+    category: 'Raw',
     title: 'Омлет из трех яиц',
     price: 250,
     priceFrom: false,
     weight: '350 грамм',
     image: './images/data-image/yaits.png',
     thumbnails: [
-      './images/data-image/yaits.png',
+      './images/data-image/images.jpg',
       './images/data-image/yaits.png',
       './images/data-image/yaits.png',
     ],
@@ -92,7 +95,7 @@ const menuItems = [
   },
   {
     id: 3,
-    category: 'breakfast',
+    category: 'Холодные закуски',
     title: 'Домашние сырники',
     price: 490,
     priceFrom: false,
@@ -111,7 +114,7 @@ const menuItems = [
   },
   {
     id: 4,
-    category: 'breakfast',
+    category: 'Брускетты ',
     title: 'Блины',
     price: 190,
     priceFrom: true,
@@ -130,7 +133,7 @@ const menuItems = [
   },
   {
     id: 5,
-    category: 'breakfast',
+    category: 'К вину ',
     title: 'Каша с ягодами и кедровыми орехами',
     price: 450,
     priceFrom: false,
@@ -148,7 +151,7 @@ const menuItems = [
   },
   {
     id: 6,
-    category: 'breakfast',
+    category: 'Салаты',
     title: 'Скрэмбл',
     price: 290,
     priceFrom: false,
@@ -166,7 +169,7 @@ const menuItems = [
   },
   {
     id: 7,
-    category: 'breakfast',
+    category: 'Супы',
     title: 'Яйцо Бенедикт с лососем',
     price: 850,
     priceFrom: false,
@@ -184,7 +187,7 @@ const menuItems = [
   },
   {
     id: 8,
-    category: 'breakfast',
+    category: 'Паста и ризотто ',
     title: 'Яйцо Бенедикт с беконом',
     price: 650,
     priceFrom: false,
@@ -202,7 +205,7 @@ const menuItems = [
   },
   {
     id: 9,
-    category: 'breakfast',
+    category: 'Мясо',
     title: 'Гречневая каша с авокадо, яйцом пашот и пармезаном',
     price: 490,
     priceFrom: false,
@@ -220,7 +223,7 @@ const menuItems = [
   },
   {
     id: 10,
-    category: 'breakfast',
+    category: 'Рыба ',
     title: 'Кобб – салат с лососем',
     price: 890,
     priceFrom: false,
@@ -238,7 +241,7 @@ const menuItems = [
   },
   {
     id: 11,
-    category: 'breakfast',
+    category: 'Grill ',
     title: 'Кобб – салат с креветками',
     price: 960,
     priceFrom: false,
@@ -254,40 +257,5 @@ const menuItems = [
       { id: 2, titleKey: 'addon.avocado', price: 150 },
     ],
   },
-  createMenuItem(12, 'raw', 'Тартар из говядины', 890),
-  createMenuItem(13, 'raw', 'Тартар из лосося', 950),
-  createMenuItem(14, 'raw', 'Карпаччо из телятины', 780),
-  createMenuItem(15, 'cold', 'Ассорти из сыров', 690),
-  createMenuItem(16, 'cold', 'Оливки и марinated овощи', 420),
-  createMenuItem(17, 'cold', 'Мясное ассорти', 850),
-  createMenuItem(18, 'bruschetta', 'Брускетта с томатами', 320),
-  createMenuItem(19, 'bruschetta', 'Брускетта с лососем', 490),
-  createMenuItem(20, 'bruschetta', 'Брускетта с ветчиной', 450),
-  createMenuItem(21, 'wine', 'Сырная тарелка к вину', 890),
-  createMenuItem(22, 'wine', 'Мясное ассорти к вину', 960),
-  createMenuItem(23, 'wine', 'Оливки и орехи', 380),
-  createMenuItem(24, 'salads', 'Цезарь с курицей', 590),
-  createMenuItem(25, 'salads', 'Греческий салат', 520),
-  createMenuItem(26, 'salads', 'Салат с креветками', 780),
-  createMenuItem(27, 'soups', 'Борщ', 390),
-  createMenuItem(28, 'soups', 'Том ям с креветками', 650),
-  createMenuItem(29, 'soups', 'Крем-суп из грибов', 420),
-  createMenuItem(30, 'pasta', 'Карбонара', 690),
-  createMenuItem(31, 'pasta', 'Ризотто с грибами', 720),
-  createMenuItem(32, 'pasta', 'Паста с морепродуктами', 890),
-  createMenuItem(33, 'meat', 'Стейк рибай', 1890),
-  createMenuItem(34, 'meat', 'Телячья отбивная', 980),
-  createMenuItem(35, 'meat', 'Баранья корейка', 1450),
-  createMenuItem(36, 'fish', 'Лосось на гриле', 1250),
-  createMenuItem(37, 'fish', 'Дорадо запечённая', 1180),
-  createMenuItem(38, 'fish', 'Креветки темпура', 890),
-  createMenuItem(39, 'grill', 'Куриные крылышки', 590),
-  createMenuItem(40, 'grill', 'Свиные ребрышки', 890),
-  createMenuItem(41, 'grill', 'Овощи на гриле', 450),
-  createMenuItem(42, 'mangal', 'Шашлык из баранины', 890),
-  createMenuItem(43, 'mangal', 'Люля-кебаб', 650),
-  createMenuItem(44, 'mangal', 'Овощи на мангале', 420),
-  createMenuItem(45, 'sides', 'Картофель фри', 290),
-  createMenuItem(46, 'sides', 'Рис с овощами', 320),
-  createMenuItem(47, 'sides', 'Пюре из трюфельного картофеля', 390),
+  
 ];

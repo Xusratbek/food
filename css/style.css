@@ -63,9 +63,7 @@ body {
     flex-shrink: 0;
 }
 
-.sidebar-left a:nth-child(2) {
-    display: none;
-}
+
 
 
 .sidebar-links {
@@ -467,42 +465,52 @@ body {
 }
 
 .menu-card {
-    border: 1px solid rgba(51, 51, 51, 0.2);
+    border: 1px solid rgba(51, 51, 51, 0.15);
     background: #fff;
-    padding: 56px 48px 0;
+    padding: 20px 20px 32px;   /* tepa/yon 20px, past 32px — nishondagidek */
     display: flex;
     flex-direction: column;
-    min-height: 360px;
 }
 
 .menu-card__media {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex: 1;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
 }
 
 .menu-card__media img {
-    width: 72%;
-    max-width: 320px;
-    height: auto;
+    width: 100%;
+    height: 100%;
     display: block;
     object-fit: cover;
-    transform: translateY(28px);
+    object-position: center;
+    
 }
 
 .menu-card__about {
     display: flex;
-    gap: 20px;
+    gap: 24px;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 44px;
-    padding-bottom: 36px;
+    margin-top: 24px;
+    
+    
 }
 
 .menu-card__about .restoran-text {
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
     white-space: nowrap;
+    color: #2b2b2b;
+}
+
+.menu-card__about .linear {
+    display: block;
+    width: 110px;
+    height: 1.5px;
+    background: #b08d63;
 }
 
 .dostavka-about__h2 {
