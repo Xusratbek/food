@@ -5,10 +5,11 @@
   --muted:#8a8a8a;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
+
 body{
   font-family: 'Manrope', 'Segoe UI', Arial, sans-serif;
   color:var(--text);
-  background:#fff;
+  
 }
 .layout{
   display:flex;
@@ -121,12 +122,14 @@ body{
 .tab{
   white-space:nowrap;
   font-size:15px;
+  
   color:#3a3a3a;
   padding-bottom:12px;
   cursor:pointer;
   position:relative;
   text-decoration: none;
 }
+
 .tab.active{
   color:var(--accent);
   font-weight:600;
@@ -178,11 +181,6 @@ body{
   align-items:center;
   justify-content:space-between;
   gap:10px;
-}
-
-.product-detail__main-image {
-  position: relative;
-  overflow: hidden;
 }
 
 .product-gallery__arrow {
@@ -360,6 +358,8 @@ body{
 
 .product-card__item {
     border: 1px solid rgba(51, 51, 51, 0.2);
+    text-decoration: none;
+    color: #333333;
     
 }
 
@@ -419,23 +419,4 @@ body{
     
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

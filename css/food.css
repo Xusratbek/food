@@ -1,0 +1,48 @@
+
+
+#productPage{
+    width: 400px;
+    
+    display: flex;
+    
+
+}
+
+.productpage_left{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+
+.swiper.food-thumb-slider {
+    width: 100%;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mySwiper {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+.mySwiper  {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.swiper-wrapper{
+    display: flex;
+    gap: 20px;
+   width: 303px;
+
+}
+
+.left-wrapper{
+    
+
+}

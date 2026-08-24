@@ -1,18 +1,15 @@
 import { menuCategories } from './menu-data.js';
 import { menuItems } from './menu-data.js';
 
-
-
-
 let deleveryLinks = document.getElementById("categoriesNav")
 let productCards= document.querySelector(".product-card")
 
+deleveryLinks.innerHTML = menuCategories.map(category => `<a onclick="categoryFilter('${category.name}')" class="tab" href="#">${category.name}</a>`).join('');
 
+function categoryFilter(selectedCategory) {
+    console.log(selectedCategory)
 
-deleveryLinks.innerHTML = menuCategories.map(category => `<a class="tab" href="#">${category.name}</a>`).join('');
-
-
-
+}
 
 
 productCards.innerHTML = menuItems.map(item => `<a href="food.html?item=${item.id}" class="product-card__item">

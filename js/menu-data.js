@@ -12,6 +12,7 @@ export const menuCategories = [
   { id: 11, name: 'Grill' },
   { id: 12, name: 'Мангал' },
   { id: 13, name: 'Гарниры' },
+  
 ];
 
 
