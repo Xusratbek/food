@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FOOD — Меню</title>
-<link rel="stylesheet" href="./css/style.css">
+
 <link rel="stylesheet" href="./css/delevery.css">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="delivery-site">
 <div class="layout">
@@ -71,21 +72,41 @@
                 </div>
             </div>
             <div class="contact-map">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.5!2d30.3!3d59.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTnCsDU4JzEyLjAiTiAzMMKwMTgnMDAuMCJF!5e0!3m2!1sru!2sru!4v1234567890"
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                <img class="location-map" src="./images/Rectangle 43.png" alt="">
+                <div class="map-card">
+                    <div class="map-location">
+                        <img src="./images/ci_location.png" alt="">
+                        <span class="map-location__left">Санкт-Петербург, Северная дорога, 11 </span>
+                    </div>
+                    <div class="map-location">
+                        <img src="./images/ci_phone.png" alt="">
+                        <span class="map-location__left">+7 (921) 777-77-77 </span>
+                    </div>
+                    <h4 class="work-hour">Время работы</h4>
+                    <div class="map-location">
+                        <span>Вск-Чт</span> 
+                    <span>с 12:00 до 23:00</span>
+                    </div>
+                    <div class="map-location">
+                        <span>Пт-Сб</span> 
+                    <span>с 12:00 до 03:00</span>
+                    </div>
+                   <div class="map-btns">
+                     <button class="wrapper-navbar__btn sidebar-book-btn" type="button"
+                    data-i18n="nav.bookTable">Бронь столика</button>
+                     <button class="bron-stol" type="button"
+                    >Задать вопрос</button>
+                   </div>
+                </div>
             </div>
         </div>
     </section>
-    
+   
   </main>
+ 
   
+ 
 </div>
-
 <footer class="footer">
     <div class="container2">
         <img src="./images/logo.png" alt="Logo">
@@ -95,6 +116,9 @@
     </div>
        
 </footer>
+
+
+
 <script src="./js/i18n.js"></script>
 <script src="./js/menu-data.js"></script>
 <script type="module" src="./js/delivery.js"></script>

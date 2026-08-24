@@ -1019,6 +1019,10 @@ body.delivery-active .product-page {
         width: 100%;
         
     }
+    .contact-map img {
+        width: 100%;
+        
+    }
     
     .delivery-grid {
         grid-template-columns: 1fr;
@@ -1350,6 +1354,12 @@ body.delivery-active .product-page {
         flex-direction: column;
     }
 
+    .menu-card {
+        border: none;
+        width: 100%;
+        
+    }
+
     .sidebar {
         width: 100%;
         height: auto;
@@ -1484,17 +1494,55 @@ body.delivery-active .product-page {
 
     .menu-card {
         min-height: 0;
-        padding: 40px 28px 0;
+        
+    }
+
+    .restoran-about {
+        visibility: hidden;
+    }
+    .menu-card__about{
+        margin-left: -26px;
+    }
+
+    .restoran-text,
+    .restoran-linear {
+        visibility: hidden;
+    }
+
+    .dostavka-about__h2{
+        visibility: hidden;
     }
 
     .menu-card__media img {
-        width: 80%;
-        transform: translateY(20px);
+        width: 100%;
+       
+    }
+
+    .restoran-about__description {
+        margin-top: 30px;
+    }
+
+    .contact-left{
+        display: flex;
+        gap: 120px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact-right__items {
+        position: relative;
+        top: -19px;
     }
 
     .menu-card__about {
         margin-top: 32px;
         padding-bottom: 28px;
+    }
+
+    .contact-map {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .contact-location {
@@ -1522,6 +1570,14 @@ body.delivery-active .product-page {
 }
 
 @media (max-width: 768px) {
+
+    .dostavka-about__h2{
+        display: none;
+    }
+
+    
+
+    
     .container {
         margin: 48px auto;
         padding: 0 16px;
@@ -1553,6 +1609,35 @@ body.delivery-active .product-page {
     .sidebar-links {
         display: none;
     }
+    .restoran-about{
+        display: none;
+    }
+    .menu-card {
+        border: none;
+        
+    }
+
+    .menu-card__image{
+        
+        
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+    .menu-card__media {
+        position: relative;
+        top: -30px;
+        
+    }
+
+    .menu-card__about{
+        display: none;
+    }
+
+    .restoran-about__description{
+        padding-top: 20px;
+        
+    }
 
     .wrapper {
         min-height: 460px;
@@ -1571,15 +1656,30 @@ body.delivery-active .product-page {
         padding: 0 16px;
     }
 
+    .restoran-about{
+        margin-top: -50px;
+        
+    }
+
+    .restoran-about__h2 {
+        margin-top: -30px;
+    }
+
     .restoran-about__h2,
     .dostavka-about__h2 {
         font-size: 32px;
+    }
+
+    .restoran-about__description{
+        margin-top: -30px;
+        
     }
 
     .restoran-about__description,
     .contact-city {
         font-size: 16px;
     }
+    
 
     .about-section__title {
         font-size: 36px;
@@ -1609,12 +1709,14 @@ body.delivery-active .product-page {
     }
 
     .menu-card {
-        padding: 32px 20px 0;
+        margin-top: -20px;
+        
+        
     }
 
     .menu-card__media img {
-        width: 88%;
-        transform: translateY(16px);
+        width: 100%;
+        
     }
 
     .menu-card__about {
@@ -1674,6 +1776,40 @@ body.delivery-active .product-page {
         max-width: 96px;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+    
+
+    
+    .menu-card {
+        border: none;
+        padding: 0;
+    }
+    .contact-map img {
+        width: 100%;
+        
+    }
+    .dostavka-btns{
+        width: 100%;
+        
+    }
+    .dostavka-more__btn {
+        width: 100%;
+        
+    }
+    .contact-map img {
+        position: static;
+    }
+    .menu-card__about{
+        display: none;
+    }
+    .map-card{
+        width: 100%;
+        display: none;
+    }
+
+    .menu-card__media img {
+        width: 100%;
+        height: auto;
     }
 
     .lang-select {
@@ -1782,6 +1918,14 @@ body.delivery-active .product-page {
     .restoran-text {
         font-size: 16px;
     }
+    .restoran-about {
+        
+     margin-top: 20px;  
+    }
+
+    .restoran-about__description {
+        margin-top: 10px;
+    }
 
     .about-section__title {
         font-size: 32px;
@@ -1840,6 +1984,7 @@ body.delivery-active .product-page {
         font-size: 18px;
         padding: 0 10px;
     }
+    
 
     .about-section__title {
         font-size: 28px;
