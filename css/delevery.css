@@ -456,3 +456,149 @@ body{
     
 }
 
+/* =========================================================
+   RESPONSIVE ADDITIONS (mavjud stillar o'zgartirilmadi,
+   faqat quyidagi media query'lar qo'shildi)
+   ========================================================= */
+
+/* Planshet va undan kichik: 992px gacha — sidebar yuqori gorizontal panelga aylanadi
+   (style.css dagi asosiy sidebar breakpointi bilan mos, 992px) */
+@media only screen and (max-width: 992px) {
+  .layout{
+    flex-direction: column;
+  }
+  .sidebar{
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 18px 24px;
+    gap: 14px 24px;
+  }
+  .logo{
+    margin-bottom: 0;
+  }
+  .burger{
+    margin-bottom: 0;
+  }
+  .social{
+    flex-direction: row;
+    margin-top: 0;
+    margin-left: auto;
+    gap: 18px;
+  }
+  .main{
+    padding: 20px 32px 50px;
+  }
+  .topbar{
+    justify-content: space-between;
+  }
+  .grid{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .product-card{
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+  .delivery-site .product-detail{
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+/* Kichik planshet / katta telefon: 900px gacha */
+@media only screen and (max-width: 900px) {
+  .main{
+    padding: 18px 24px 40px;
+  }
+  .grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .product-card{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 16px;
+  }
+  .tabs{
+    gap: 24px;
+  }
+  .product-info__price{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Telefon: 640px gacha */
+@media only screen and (max-width: 640px) {
+  .sidebar{
+    padding: 14px 20px;
+    gap: 16px;
+  }
+  .social{
+    gap: 14px;
+  }
+  .main{
+    padding: 16px 16px 32px;
+  }
+  .tabs{
+    gap: 18px;
+    padding: 18px 0 12px;
+  }
+  .grid{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .card-body,
+  .food-card__body{
+    padding: 16px 16px 18px;
+  }
+  .card-footer,
+  .food-card__footer{
+    flex-wrap: wrap;
+  }
+  .product-card{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 14px;
+  }
+  .delivery-site .product-detail{
+    gap: 20px;
+  }
+  .product-info{
+    padding: 20px 0;
+  }
+  .product-info__title{
+    font-size: 17px;
+  }
+  .product-info__price{
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .product-info__price-amount{
+    font-size: 26px;
+  }
+}
+
+/* Kichik telefon: 380px gacha */
+@media only screen and (max-width: 380px) {
+  .card-title,
+  .food-card__title{
+    font-size: 14px;
+    min-height: auto;
+  }
+  .price,
+  .food-card__price{
+    font-size: 17px;
+  }
+  .btn,
+  .food-card__btn{
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+}
