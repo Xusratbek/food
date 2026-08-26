@@ -469,7 +469,7 @@ body {
     border: 1px solid rgba(51, 51, 51, 0.15);
     height: 250px;
     background: #fff;
-    padding: 30px 30px 32px;   /* tepa/yon 20px, past 32px — nishondagidek */
+    padding: 30px 30px 32px;
     display: flex;
     flex-direction: column;
 }
@@ -1097,7 +1097,7 @@ body.delivery-active .product-page {
 
 .lang-select__dropdown {
     position: absolute;
-    top: calc(100% + 6px);
+    
     left: 0;
     right: 0;
     list-style: none;
@@ -1108,8 +1108,12 @@ body.delivery-active .product-page {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-6px);
-    transition: all 0.25s ease;
+   
+    z-index: 1000;
+}
+
+.lang-select.open {
+    z-index: 1;
 }
 
 .lang-select.open .lang-select__dropdown {
@@ -1205,13 +1209,11 @@ body.delivery-active .product-page {
 
 .lang-select--sidebar .lang-select__dropdown {
     left: 50%;
-    transform: translateX(-50%) translateY(-6px);
+    
     min-width: 150px;
 }
 
-.lang-select--sidebar.open .lang-select__dropdown {
-    transform: translateX(-50%) translateY(0);
-}
+
 
 .lang-select--mobile {
     min-width: 180px;
@@ -1369,7 +1371,7 @@ body.delivery-active .product-page {
         position: sticky;
         top: 0;
         z-index: 200;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .sidebar-left {
@@ -1405,6 +1407,9 @@ body.delivery-active .product-page {
         gap: 8px;
         margin-left: auto;
         margin-right: 8px;
+        position: relative;
+        z-index: 1;
+        overflow: visible;
     }
 
     .sidebar-book-btn {
@@ -1586,9 +1591,11 @@ body.delivery-active .product-page {
     }
 
     .contact-left__items {
+        padding: 20px;
+        
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px 16px;
+        gap: 24px 50px;
     }
 
     .contact-left__items + .contact-left__items {
@@ -1599,8 +1606,10 @@ body.delivery-active .product-page {
         min-width: 0;
     }
 
-    .lang-select--mobile {
-        display: none;
+    .mobile-menu .lang-select--mobile {
+        display: inline-block;
+        width: 100%;
+        max-width: 220px;
     }
 
     .sidebar-links {
@@ -1757,7 +1766,7 @@ body.delivery-active .product-page {
     .sidebar {
         padding: 12px max(14px, env(safe-area-inset-right)) 12px max(14px, env(safe-area-inset-left));
         gap: 8px;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .sidebar-actions {

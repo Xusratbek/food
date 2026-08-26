@@ -6,11 +6,6 @@ let productCards= document.querySelector(".product-card")
 
 deleveryLinks.innerHTML = menuCategories.map(category => `<a onclick="categoryFilter('${category.name}')" class="tab" href="#">${category.name}</a>`).join('');
 
-function categoryFilter(selectedCategory) {
-    console.log(selectedCategory)
-
-}
-
 
 productCards.innerHTML = menuItems.map(item => `<a href="food.html?item=${item.id}" class="product-card__item">
     <img class="product-card__image" src="${item.image}" alt="${item.title}">

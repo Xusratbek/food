@@ -1,13 +1,7 @@
 #productPage{
     width: 400px;
-    
     display: flex;
-    
-
 }
-
-
-
 .productpage_left{
     display: flex;
     flex-direction: column;
@@ -42,17 +36,6 @@
 
 }
 
-.left-wrapper{
-    
-
-}
-
-/* =========================================================
-   RESPONSIVE ADDITIONS (mavjud stillar o'zgartirilmadi,
-   faqat quyidagi media query'lar qo'shildi)
-   ========================================================= */
-
-/* Planshet va undan kichik: 992px gacha */
 @media only screen and (max-width: 992px) {
   #productPage{
     width: 100%;
@@ -94,7 +77,7 @@
   }
 }
 
-/* Kichik planshet / katta telefon: 640px gacha */
+
 @media only screen and (max-width: 640px) {
   #productPage{
     gap: 24px;
@@ -105,7 +88,7 @@
   }
 }
 
-/* Telefon: 420px gacha */
+
 @media only screen and (max-width: 420px) {
   .swiper-slider img{
     width: 72px !important;

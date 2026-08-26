@@ -328,7 +328,47 @@ function closeAllLangSelects() {
   document.querySelectorAll('.lang-select.open').forEach((select) => {
     select.classList.remove('open');
     select.querySelector('.lang-select__trigger')?.setAttribute('aria-expanded', 'false');
+    resetLangDropdownPosition(select);
   });
+}
+
+function resetLangDropdownPosition(select) {
+  const dropdown = select.querySelector('.lang-select__dropdown');
+  if (!dropdown) return;
+
+  dropdown.style.position = '';
+  dropdown.style.top = '';
+  dropdown.style.left = '';
+  dropdown.style.right = '';
+  dropdown.style.width = '';
+  dropdown.style.minWidth = '';
+  dropdown.style.transform = '';
+}
+
+function positionLangDropdown(select) {
+  const dropdown = select.querySelector('.lang-select__dropdown');
+  const trigger = select.querySelector('.lang-select__trigger');
+  if (!dropdown || !trigger) return;
+
+  if (!window.matchMedia('(max-width: 992px)').matches) {
+    resetLangDropdownPosition(select);
+    return;
+  }
+
+  const rect = trigger.getBoundingClientRect();
+  const minWidth = 160;
+  const dropdownWidth = Math.max(rect.width, minWidth);
+  let left = rect.right - dropdownWidth;
+
+  left = Math.max(8, Math.min(left, window.innerWidth - dropdownWidth - 8));
+
+  dropdown.style.position = 'fixed';
+  dropdown.style.top = `${rect.bottom + 6}px`;
+  dropdown.style.left = `${left}px`;
+  dropdown.style.right = 'auto';
+  dropdown.style.width = `${dropdownWidth}px`;
+  dropdown.style.minWidth = `${minWidth}px`;
+  dropdown.style.transform = 'translateY(0)';
 }
 
 function updateLangSelects() {
@@ -392,6 +432,7 @@ function buildLangSelect(variant) {
     if (!isOpen) {
       select.classList.add('open');
       trigger.setAttribute('aria-expanded', 'true');
+      positionLangDropdown(select);
     }
   });
 
@@ -421,6 +462,12 @@ function initLanguageSwitcher() {
   });
 
   document.addEventListener('click', closeAllLangSelects);
+
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.lang-select.open').forEach((select) => {
+      positionLangDropdown(select);
+    });
+  });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeAllLangSelects();
