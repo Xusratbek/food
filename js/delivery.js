@@ -1,37 +1,44 @@
-import { menuCategories } from './menu-data.js';
-import { menuItems } from './menu-data.js';
+import { menuCategories, menuItems } from "./menu-data.js";
 
-let deleveryLinks = document.getElementById("categoriesNav")
-let productCards= document.querySelector(".product-card")
-
-deleveryLinks.innerHTML = menuCategories.map(category => `<a onclick="categoryFilter('${category.name}')" class="tab" href="#">${category.name}</a>`).join('');
+const deleveryLinks = document.getElementById("categoriesNav");
+const productCards = document.querySelector(".product-card");
 
 
-productCards.innerHTML = menuItems.map(item => `<a href="food.html?item=${item.id}" class="product-card__item">
-    <img class="product-card__image" src="${item.image}" alt="${item.title}">
-    <div class="product-info">
+function renderProducts(items) {
+  productCards.innerHTML = items.map(item => `
+    <a href="food.html?item=${item.id}" class="product-card__item">
+      <img class="product-card__image" src="${item.image}" alt="${item.title}">
+
+      <div class="product-info">
         <h4 class="product-info__title">${item.title}</h4>
-    </div>
-    <div class="product-info__price">
+      </div>
+
+      <div class="product-info__price">
         <span class="product-info__price-amount">${item.price}₽</span>
         <button class="product-info__button">Добавить</button>
-    </div>
-</a>`).join('')
+      </div>
+    </a>
+  `).join("");
+}
 
 
+function categoryFilter(categoryName) {
+  const filtered = menuItems.filter(
+    item => item.category.trim() === categoryName.trim()
+  );
+
+  renderProducts(filtered);
+}
 
 
+window.categoryFilter = categoryFilter;
 
 
+deleveryLinks.innerHTML = menuCategories.map(category => `
+  <span class="tab" onclick="categoryFilter('${category.name}')">
+    ${category.name}
+  </span>
+`).join("");
 
 
-
-
-
-
-
-
-
-
-
-
+renderProducts(menuItems);

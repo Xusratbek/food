@@ -10,13 +10,7 @@ export const menuCategories = [
   { id: 9, name: 'Мясо' },
   { id: 10, name: 'Рыба' },
   { id: 11, name: 'Grill' },
-  { id: 12, name: 'Мангал' },
-  { id: 13, name: 'Гарниры' },
-  
 ];
-
-
-
 
 const menuImages = [
   './images/data-image/trex.png',
@@ -65,7 +59,7 @@ export const menuItems = [
     thumbnails: [
       './images/data-image/trex.png',
       './images/data-image/trex.png',
-      './images/data-image/trex.png',
+      
     ],
     addons: [
       { id: 1, titleKey: 'Тигровые креветки 60 г', price: 450 },
@@ -83,9 +77,9 @@ export const menuItems = [
     weight: '350 грамм',
     image: './images/data-image/yaits.png',
     thumbnails: [
-      './images/data-image/images.jpg',
       './images/data-image/yaits.png',
       './images/data-image/yaits.png',
+      
     ],
     addons: [
       { id: 1, titleKey: 'addon.shrimp', price: 450 },
@@ -105,7 +99,7 @@ export const menuItems = [
     thumbnails: [
       './images/data-image/sirniki.png',
       './images/data-image/sirniki.png',
-      './images/data-image/sirniki.png',
+     
     ],
     addons: [
       { id: 1, titleKey: 'addon.sourcream', price: 60 },
@@ -124,7 +118,7 @@ export const menuItems = [
     thumbnails: [
       './images/data-image/Pancakes.png',
       './images/data-image/Pancakes.png',
-      './images/data-image/Pancakes.png',
+      
     ],
     addons: [
       { id: 1, titleKey: 'addon.sourcream', price: 60 },
@@ -143,7 +137,7 @@ export const menuItems = [
     thumbnails: [
       './images/data-image/Porridge.png',
       './images/data-image/Porridge.png',
-      './images/data-image/Porridge.png',
+      
     ],
     addons: [
       { id: 1, titleKey: 'addon.honey', price: 70 },
@@ -161,7 +155,7 @@ export const menuItems = [
     thumbnails: [
       './images/data-image/Scramble.png',
       './images/data-image/Scramble.png',
-      './images/data-image/Scramble.png',
+      
     ],
     addons: [
       { id: 1, titleKey: 'addon.bacon', price: 120 },
@@ -179,7 +173,7 @@ export const menuItems = [
     thumbnails: [
       './images/data-image/Benedict.png',
       './images/data-image/Benedict.png',
-      './images/data-image/Benedict.png',
+      
     ],
     addons: [
       { id: 1, titleKey: 'addon.avocado', price: 150 },
@@ -197,7 +191,7 @@ export const menuItems = [
     thumbnails: [
       './images/data-image/bacon.png',
       './images/data-image/bacon.png',
-      './images/data-image/bacon.png',
+      
     ],
     addons: [
       { id: 1, titleKey: 'addon.avocado', price: 150 },
@@ -215,7 +209,7 @@ export const menuItems = [
     thumbnails: [
       './images/data-image/trex.png',
       './images/data-image/trex.png',
-      './images/data-image/trex.png',
+      
     ],
     addons: [
       { id: 1, titleKey: 'addon.salmon', price: 280 },
@@ -233,7 +227,7 @@ export const menuItems = [
     thumbnails: [
       './images/data-image/Salad.png',
       './images/data-image/Salad.png',
-      './images/data-image/Salad.png',
+      
     ],
     addons: [
       { id: 1, titleKey: 'addon.avocado', price: 150 },
@@ -251,7 +245,7 @@ export const menuItems = [
     thumbnails: [
       './images/data-image/Salad.png',
       './images/data-image/Salad.png',
-      './images/data-image/Salad.png',
+      
     ],
     addons: [
       { id: 1, titleKey: 'addon.shrimp', price: 450 },

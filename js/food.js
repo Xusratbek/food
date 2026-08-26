@@ -8,6 +8,8 @@ let productPage = document.getElementById("productPage")
 let productDetailInfo = document.getElementById("productDetail") 
 let productAddons = document.getElementById("product-addons")
 let swiperSlideWhen = document.getElementById("swiper-slide__when")
+let leftWrapper = document.getElementById("left-wrapper__images")
+let swiperSlides = document.getElementById("swiper-slides")
 
 
 
@@ -17,11 +19,17 @@ deleveryLinks.innerHTML = menuCategories.map(category => `<a class="tab" href="#
 
 const ford = menuItems.find(item => item.id == id);
 
+leftWrapper.innerHTML = ford.thumbnails.map(thumbnail => ` <div class="swiper-slide swiper-slider">
+    <img style="width: 110px; height: 93px;" src="${thumbnail}" />
+</div>
+`).join('');
 
+swiperSlides.innerHTML= ford.thumbnails.map(thumbnail => ` <div class="swiper-slide swiper-slider">
+    <img src="${thumbnail}" />
+</div>
+`).join('');
 
-
-
-swiperSlideWhen.innerHTML=`<img   src=${ford.image} />`
+swiperSlideWhen.innerHTML=`<img  src=${ford.image} />`
 
 
 productDetailInfo.innerHTML = `<div class="product-detail__info">
@@ -52,6 +60,10 @@ productDetailInfo.innerHTML = `<div class="product-detail__info">
         </div>
       </div>
     </div>`
+
+
+
+   
 
 
 

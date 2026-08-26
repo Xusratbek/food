@@ -52,7 +52,7 @@ body.delivery-site{
     font-weight: 400;
     font-size: 16px;
     line-height: 140%;
-    
+
 }
 .burger{
   width:34px;
@@ -65,8 +65,8 @@ body.delivery-site{
 
 .account {
     display: flex;
-    
-    
+
+
 }
 .burger span{
   display:block;
@@ -130,7 +130,7 @@ body.delivery-site{
 .tab{
   white-space:nowrap;
   font-size:15px;
-  
+
   color:#3a3a3a;
   padding-bottom:12px;
   cursor:pointer;
@@ -223,11 +223,11 @@ body.delivery-site{
 #productMainImage.slide-right { animation: slideRight 0.25s ease; }
 
 @keyframes slideLeft {
-  from { transform: translateX(20px); opacity: 0.4; }
+  from { transform: translateX(20px); opacity: 1; }
   to { transform: translateX(0); opacity: 1; }
 }
 @keyframes slideRight {
-  from { transform: translateX(-20px); opacity: 0.4; }
+  from { transform: translateX(-20px); opacity: 1; }
   to { transform: translateX(0); opacity: 1; }
 }
 .price{
@@ -369,7 +369,7 @@ body.delivery-site{
 
 .product-card__image{
     width: 100%;
-    
+
     object-fit: cover;
 }
 
@@ -379,11 +379,11 @@ body.delivery-site{
     font-size: 20px;
     line-height: 140%;
     text-align: center;
-    
+
 }
 
 .product-info{
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -398,8 +398,8 @@ body.delivery-site{
     padding-bottom: 30px;
     padding-left: 30px;
     padding-right: 30px;
-    
-    
+
+
 }
 
 
@@ -407,8 +407,8 @@ body.delivery-site{
     font-weight: 700;
     font-size: 32px;
     line-height:120%;
-    
-    
+
+
 }
 
 .product-info__button {
@@ -419,8 +419,8 @@ body.delivery-site{
     line-height: 140%;
     border: none;
     padding: 10px 20px;
-    
-    
+
+
 }
 
 body.delivery-site .footer{
@@ -457,6 +457,7 @@ body.delivery-site .footer-link{
   .main{
     padding:24px 48px 60px;
   }
+  
 }
 
 /* Sidebar yonida 4 ta card sig‘maydigan oralik (masalan, 1069px) */
@@ -477,13 +478,7 @@ body.delivery-site .footer-link{
   }
 }
 
-/* =========================================================
-   RESPONSIVE ADDITIONS (mavjud stillar o'zgartirilmadi,
-   faqat quyidagi media query'lar qo'shildi)
-   ========================================================= */
 
-/* Planshet va undan kichik: 992px gacha — sidebar yuqori gorizontal panelga aylanadi
-   (style.css dagi asosiy sidebar breakpointi bilan mos, 992px) */
 @media only screen and (max-width: 992px) {
   .layout{
     flex-direction: column;

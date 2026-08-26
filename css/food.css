@@ -6,9 +6,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    
-}
 
+}
 
 .swiper.food-thumb-slider {
     width: 100%;
@@ -17,24 +16,21 @@
     margin-right: auto;
 }
 
-.mySwiper {
-    height: 20%;
-    box-sizing: border-box;
-    padding: 10px 0;
+.left-wrapper {
+    display: flex;
+    gap: 50px;
+    
+    
 }
+
+
 
 .mySwiper  {
     width: 25%;
     height: 100%;
-    opacity: 0.4;
 }
 
-.swiper-wrapper{
-    display: flex;
-    gap: 20px;
-   width: 303px;
 
-}
 
 @media only screen and (max-width: 992px) {
   #productPage{
@@ -48,7 +44,7 @@
   }
   .productpage_left .swiper.mySwiper2.food-main-swiper{
     width: 100% !important;
-    max-width: 480px;
+    max-width: 600px;
   }
   .productpage_left .swiper.mySwiper2.food-main-swiper .swiper-wrapper{
     width: 100% !important;
@@ -85,6 +81,7 @@
   .swiper-slider img{
     width: 88px !important;
     height: 74px !important;
+    border: 1px solid;
   }
 }
 
