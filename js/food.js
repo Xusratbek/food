@@ -18,7 +18,7 @@ let swiperSlides = document.getElementById("swiper-slides")
 deleveryLinks.innerHTML = menuCategories.map(category => `<a class="tab" href="#">${category.name}</a>`).join('');
 
 const ford = menuItems.find(item => item.id == id);
-
+console.log(ford)
 leftWrapper.innerHTML = ford.thumbnails.map(thumbnail => ` <div class="swiper-slide swiper-slider">
     <img style="width: 110px; height: 93px;" src="${thumbnail}" />
 </div>

@@ -30,9 +30,9 @@
                 <div data-lang-select="header"></div>
             </div>
             <div class="sidebar-links">
-                <img src="./images/Youtube.png" alt="YouTube">
-                <img src="./images/Vk.png" alt="VK">
-                <img src="./images/telegram.png" alt="Telegram">
+                <a href="https://www.youtube.com/"><img src="./images/Youtube.png" alt="YouTube"></a>
+                <a href="https://vk.ru/"><img  src="./images/Vk.png" alt="VK"></a>
+                <a href="https://telegram.org/"><img src="./images/telegram.png" alt="Telegram"></a>
             </div>
 
         </aside>
@@ -161,7 +161,8 @@
         </div>
 
         <div class="menu-cards">
-            <article class="menu-card">
+            <a style="text-decoration: none;" href="#">
+                <article class="menu-card">
                 <div class="menu-card__media">
                         <img class="menu-card__image" src="./images/stoet.png" alt="Основное меню">
                 </div>
@@ -170,7 +171,9 @@
                     <span class="linear"></span>
                 </div>
             </article>
-            <article class="menu-card">
+            </a>
+            <a style="text-decoration: none;" href="#">
+                <article class="menu-card">
                 <div class="menu-card__media">
                     <img src="./images/document.png" alt="Барная карта">
                 </div>
@@ -179,6 +182,7 @@
                     <span class="linear restoran-linear"></span>
                 </div>
             </article>
+            </a>
         </div>
 
     </section>
@@ -197,9 +201,9 @@
                 vitae mauris aliquet orci. Consectetur nibh interdum nullam ut lobortis eu etiam sem.
             </p>
             <div class="dostavka-btns">
-            <button class="dostavka-more__btn" type="button" data-i18n="delivery.more">Подробнее</button>
-            <button class="dostavka-condition__btn" type="button" data-i18n="delivery.conditions">Условия
-                доставки</button>
+            <button id="openMobileMenu" type="button"  class="dostavka-more__btn"  data-i18n="delivery.more">Подробнее</button>
+            <a href="#" style="text-decoration: none;" class="dostavka-condition__btn"  data-i18n="delivery.conditions">Условия
+                доставки</a>
         </div>
             </div>
         </div>
@@ -238,12 +242,12 @@
                 <img class="location-map" src="./images/Rectangle 43.png" alt="">
                 <div class="map-card">
                     <div class="map-location">
-                        <img src="./images/ci_location.png" alt="">
-                        <span class="map-location__left">Санкт-Петербург, Северная дорога, 11 </span>
+                        <a href=""><img src="./images/ci_location.png" alt=""></a>
+                       <a style="text-decoration: none; color: white; " href=""> <span class="map-location__left">Санкт-Петербург, Северная дорога, 11 </span></a>
                     </div>
                     <div class="map-location">
-                        <img src="./images/ci_phone.png" alt="">
-                        <span class="map-location__left">+7 (921) 777-77-77 </span>
+                        <a href="#"><img src="./images/ci_phone.png" alt=""></a>
+                        <a style="text-decoration: none; color: white; " href="#"><span class="map-location__left">+7 (921) 777-77-77 </span></a>
                     </div>
                     <h4 class="work-hour">Время работы</h4>
                     <div class="map-location">
@@ -255,10 +259,10 @@
                     <span>с 12:00 до 03:00</span>
                     </div>
                    <div class="map-btns">
-                     <button class="wrapper-navbar__btn sidebar-book-btn" type="button"
+                     <button id="openModalFromMenu" class="wrapper-navbar__btn sidebar-book-btn" type="button"
                     data-i18n="nav.bookTable">Бронь столика</button>
-                     <button class="bron-stol" type="button"
-                    >Задать вопрос</button>
+                     <a style="text-decoration: none;" href="#" class="bron-stol" 
+                    >Задать вопрос</a>
                    </div>
                 </div>
             </div>
@@ -318,8 +322,8 @@
 
             <nav class="mobile-menu-nav">
                 <ul>
-                    <li><a href="#" data-open-landing data-i18n="nav.menu">Меню</a></li>
-                    <li><a href="#" data-open-delivery data-i18n="nav.delivery">Доставка</a></li>
+                   
+                    <li><a href="delivery.html" data-open-delivery data-i18n="nav.delivery">Доставка</a></li>
                     <li><a href="#payment" data-i18n="nav.payment">Оплата</a></li>
                 </ul>
             </nav>
@@ -329,9 +333,9 @@
             </button>
 
             <div class="mobile-menu-socials">
-                <a href="#"><img src="./images/Youtube.png" alt="YouTube"></a>
-                <a href="#"><img src="./images/Vk.png" alt="VK"></a>
-                <a href="#"><img src="./images/telegram.png" alt="Telegram"></a>
+                <a href="https://www.youtube.com/"><img src="./images/Youtube.png" alt="YouTube"></a>
+                <a href="https://vk.ru/"><img src="./images/Vk.png" alt="VK"></a>
+                <a href="https://telegram.org/"><img src="./images/telegram.png" alt="Telegram"></a>
             </div>
         </div>
     </div>
