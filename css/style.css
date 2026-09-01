@@ -378,8 +378,8 @@ body {
 .mobile-menu-socials img {
   width: 24px;
   height: 24px;
-  opacity: 0.8;
-  transition: opacity 0.2s;
+  
+  
 }
 
 .mobile-menu-socials a:hover img {
@@ -1314,6 +1314,11 @@ body.delivery-active .product-page {
     line-height: 140%;
     padding: 10px 20px;
 
+}
+
+.dostavka-more__btn {
+    cursor: pointer;
+    text-decoration: none;
 }
 
 @media (max-width: 1200px) {
