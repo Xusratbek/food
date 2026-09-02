@@ -6,19 +6,37 @@ import { menuCategories, menuItems } from "./menu-data.js";
 const deleveryLinks = document.getElementById("categoriesNav");
 const productCards = document.querySelector(".product-card");
 
+const categoryKeys = {
+  1: 'cat.breakfast',
+  2: 'cat.raw',
+  3: 'cat.cold',
+  4: 'cat.bruschetta',
+  5: 'cat.wine',
+  6: 'cat.salads',
+  7: 'cat.soups',
+  8: 'cat.pasta',
+  9: 'cat.meat',
+  10: 'cat.fish',
+  11: 'cat.grill',
+};
+
+function getCategoryLabel(cat) {
+  return t(categoryKeys[cat.id]) || cat.name;
+}
+
 
 function renderProducts(items) {
   productCards.innerHTML = items.map(item => `
     <a href="food.html?item=${item.id}" class="product-card__item">
-      <img class="product-card__image" src="${item.image}" alt="${item.title}">
+      <img class="product-card__image" src="${item.image}" alt="${getItemTitle(item)}">
 
       <div class="product-info">
-        <h4 class="product-info__title">${item.title}</h4>
+        <h4 class="product-info__title">${getItemTitle(item)}</h4>
       </div>
 
       <div class="product-info__price">
         <span class="product-info__price-amount">${item.price}₽</span>
-        <button class="product-info__button">Добавить</button>
+        <button class="product-info__button">${t('delivery.addToCart')}</button>
       </div>
     </a>
   `).join("");
@@ -106,6 +124,7 @@ function categoryFilter(categoryName) {
     item => item.category.trim() === categoryName.trim()
   );
 
+  currentCategory = categoryName;
   renderProducts(filtered);
 
   const contactsSection = document.getElementById('contactsSection');
@@ -120,11 +139,27 @@ function categoryFilter(categoryName) {
 window.categoryFilter = categoryFilter;
 
 
-deleveryLinks.innerHTML = menuCategories.map(category => `
-  <span class="tab" data-category="${category.name}" onclick="categoryFilter('${category.name}')">
-    ${category.name}
-  </span>
-`).join("");
+let currentCategory = null;
+
+function renderTabs() {
+  deleveryLinks.innerHTML = menuCategories.map(category => `
+    <span class="tab${currentCategory === category.name ? ' active' : ''}" data-category="${category.name}" onclick="categoryFilter('${category.name}')">
+      ${getCategoryLabel(category)}
+    </span>
+  `).join("");
+}
+
+renderTabs();
 
 
 renderProducts(menuItems);
+
+
+document.addEventListener('languageChanged', () => {
+  renderTabs();
+  if (currentCategory) {
+    categoryFilter(currentCategory);
+  } else {
+    renderProducts(menuItems);
+  }
+});
