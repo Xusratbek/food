@@ -18,8 +18,9 @@
         <aside class="sidebar">
             <a class="logo" href="index.html">OOD</a>
             <a href="" id="openMobileMenu">
-                    <img src="./images/burger-menu.png" alt="Logo">
-                </a>
+                <img src="./images/burger-menu.png" alt="Logo">
+            </a>
+
             <div class="social">
                 <a href="https://www.youtube.com/" title="YouTube"><svg viewBox="0 0 24 24">
                         <path
@@ -39,9 +40,9 @@
         <main class="main">
             <div class="topbar">
                 <div class="account">
-                    <span class="personal-account">Личный кабинет</span>
-                    <img src="./images/data-image/User.png" alt="Logo">
-                    <img src="./images/data-image/card.png" alt="Logo">
+                    <a class="personal-account" href="#">Личный кабинет</a>
+                    <a href="#"><img src="./images/data-image/User.png" alt="Logo"></a>
+                   <a href="#"> <img src="./images/data-image/card.png" alt="Logo"></a>
 
                 </div>
             </div>
@@ -49,18 +50,16 @@
             <section id="deliveryPage">
                 <nav class="tabs delivery-categories" id="categoriesNav"></nav>
 
+                <div id="productCards" class="product-card"></div>
             </section>
 
             <section id="productPage">
                 <div class="productpage_left">
                     <div style=""
                         class="swiper mySwiper2 food-main-swiper">
-                        <div style="width: 400px; height: 300px;" class="swiper-wrapper">
+                        <div style="width: 400px; height: 300px;" class="swiper-wrapper" id="foodMainWrapper">
                             <div id="swiper-slide__when" class="swiper-slide">
 
-                            </div>
-                            <div id="swiper-slides" class="swiper-slide">
-                                
                             </div>
                             
                         </div>
@@ -117,6 +116,7 @@
                         </div>
                     </div>
                     <div class="contact-map">
+
                 <img class="location-map" src="./images/Rectangle 43.png" alt="">
                 <div class="map-card">
                     <div class="map-location">
@@ -144,6 +144,35 @@
                    </div>
                 </div>
             </div>
+
+                        <img class="location-map" src="./images/Rectangle 43.png" alt="">
+                        <div class="map-card">
+                            <div class="map-location">
+                                <a href=""><img src="./images/ci_location.png" alt=""></a>
+                               <a style="text-decoration: none; color: white; " href=""> <span class="map-location__left">Санкт-Петербург, Северная дорога, 11 </span></a>
+                            </div>
+                            <div class="map-location">
+                                <a href="#"><img src="./images/ci_phone.png" alt=""></a>
+                                <a style="text-decoration: none; color: white; " href="tel:+998901234567"><span class="map-location__left">+7 (921) 777-77-77 </span></a>
+                            </div>
+                            <h4 class="work-hour">Время работы</h4>
+                            <div class="map-location">
+                                <span>Вск-Чт</span> 
+                            <span>с 12:00 до 23:00</span>
+                            </div>
+                            <div class="map-location">
+                                <span>Пт-Сб</span> 
+                            <span>с 12:00 до 03:00</span>
+                            </div>
+                           <div class="map-btns">
+                             <button id="openModalFromMenu" class="wrapper-navbar__btn sidebar-book-btn" type="button"
+                            data-i18n="nav.bookTable">Бронь столика</button>
+                             <a style="text-decoration: none;" href="#" class="bron-stol" 
+                            >Задать вопрос</a>
+                           </div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
         </main>
@@ -152,12 +181,50 @@
     <footer class="footer">
         <div class="container2">
             <a href=""><img src="./images/logo.png" alt="Logo"></a>
-    <a  href="" class="footer-politika" data-i18n="footer.privacy">Политика конфиденциальности</a>
-    <a href="" class="footer-link" data-i18n="footer.design">Дизайн d-e-n.ru</a>
+
+            <a  href="" class="footer-politika" data-i18n="footer.privacy">Политика конфиденциальности</a>
+            <a href="" class="footer-link" data-i18n="footer.design">Дизайн d-e-n.ru</a>
         </div>
     </footer>
 
 
+
+
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+    
+            <div class="mobile-menu-logo">
+                <a href=""><img src="./images/logo.png" alt="FOOD"></a>
+                <br>
+                <button class="mobile-menu-close" id="closeMobileMenu" data-i18n-aria="modal.close"
+                    aria-label="Закрыть">×</button>
+    
+            </div>
+    
+            <div data-lang-select="mobile"></div>
+    
+            <nav class="mobile-menu-nav">
+                <ul>
+                   
+                    <li><a href="delivery.html" data-open-delivery data-i18n="nav.delivery">Доставка</a></li>
+                    <li><a href="#payment" data-i18n="nav.payment">Оплата</a></li>
+                </ul>
+            </nav>
+    
+            <button class="mobile-menu-btn" id="openModalMobile" data-i18n="nav.bookTable">
+                Бронь столика
+            </button>
+    
+            <div class="mobile-menu-socials">
+                <a href="https://www.youtube.com/"><img src="./images/Youtube.png" alt="YouTube"></a>
+                <a href="https://vk.ru/"><img src="./images/Vk.png" alt="VK"></a>
+                <a href="https://telegram.org/"><img src="./images/telegram.png" alt="Telegram"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Modal ===== -->
 
     <div class="modal-overlay" id="bookingModal">
         <div class="modal">
@@ -183,6 +250,7 @@
             </form>
         </div>
     </div>
+
 
     <!-- ===== Mobile Menu ===== -->
     <div class="mobile-menu" id="mobileMenu">
@@ -219,6 +287,36 @@
     </div>
 
 
+
+
+    <script>
+      (function () {
+        var modal = document.getElementById('bookingModal');
+        var openBtn = document.getElementById('openModalFromMenu');
+        var closeBtn = document.getElementById('closeModal');
+
+        if (openBtn && modal) {
+          openBtn.addEventListener('click', function () {
+            modal.classList.add('active');
+          });
+        }
+        if (closeBtn && modal) {
+          closeBtn.addEventListener('click', function () {
+            modal.classList.remove('active');
+          });
+        }
+        if (modal) {
+          modal.addEventListener('click', function (e) {
+            if (e.target === modal) {
+              modal.classList.remove('active');
+            }
+          });
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') modal.classList.remove('active');
+          });
+        }
+      })();
+    </script>
 
     <script src="./js/i18n.js"></script>
     <script type="module" src="./js/menu-data.js"></script>

@@ -107,6 +107,13 @@ function categoryFilter(categoryName) {
   );
 
   renderProducts(filtered);
+
+  const contactsSection = document.getElementById('contactsSection');
+  if (contactsSection) contactsSection.classList.add('hidden');
+
+  deleveryLinks.querySelectorAll('.tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.category === categoryName);
+  });
 }
 
 
@@ -114,7 +121,7 @@ window.categoryFilter = categoryFilter;
 
 
 deleveryLinks.innerHTML = menuCategories.map(category => `
-  <span class="tab" onclick="categoryFilter('${category.name}')">
+  <span class="tab" data-category="${category.name}" onclick="categoryFilter('${category.name}')">
     ${category.name}
   </span>
 `).join("");

@@ -52,6 +52,7 @@ body.delivery-site{
     font-weight: 400;
     font-size: 16px;
     line-height: 140%;
+    text-decoration: none;
 
 }
 .burger{
@@ -111,6 +112,9 @@ body.delivery-site{
   display:flex;
   align-items:center;
   gap:10px;
+}
+.bron-stol{
+  text-decoration: none;
 }
 .topbar .icon{
   width:20px; height:20px;
@@ -364,6 +368,8 @@ body.delivery-site{
     text-decoration: none;
     color: #333333;
     min-width: 0;
+    margin-top: 20px;
+    
 }
 
 
@@ -442,13 +448,21 @@ body.delivery-site .footer-politika{
   font-size:16px;
   line-height:140%;
   text-decoration: none;
+<<<<<<< HEAD
   color:rgba(255, 255, 255, 1);
+=======
+   color:rgba(255, 255, 255, 1);
+>>>>>>> 1e6b19f (login parol)
 }
 body.delivery-site .footer-link{
   font-weight:700;
   font-size:16px;
   line-height:140%;
+<<<<<<< HEAD
   color:rgba(255, 255, 255, 1); 
+=======
+  color:rgba(255, 255, 255, 1);
+>>>>>>> 1e6b19f (login parol)
   text-decoration: none;
 }
 
@@ -470,6 +484,7 @@ body.delivery-site .footer-link{
     gap: 20px;
   }
   .product-card{
+     
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .product-info__price{
@@ -542,6 +557,7 @@ body.delivery-site .footer-link{
   }
   .tabs{
     gap: 24px;
+    
   }
   .product-info__price{
     padding-left: 20px;
