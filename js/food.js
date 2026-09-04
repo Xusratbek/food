@@ -32,7 +32,6 @@ function getCategoryLabel(cat) {
 }
 
 
-
 // ===== Mobile Menu =====
 
 const openMobileBtn = document.getElementById('openMobileMenu');
@@ -123,6 +122,45 @@ function categoryFilter(categoryName) {
 
 window.categoryFilter = categoryFilter;
 
+let currentProduct = null;
+
+function renderDetailText(ford) {
+  const addons = ford.addons || [];
+  return `<div class="product-detail__info">
+          <h1 class="product-detail__title" id="productTitle">${getItemTitle(ford)}</h1>
+          <div class="product-detail__price-row">
+            <span class="product-detail__price" id="productPrice">${ford.price}</span>
+            <span class="product-detail__weight" id="productWeight">${ford.weight}</span>
+          </div>
+          <div class="product-detail__actions">
+            <div class="product-detail__quantity">
+              <label for="productQuantity">${t('delivery.quantity')}</label>
+              <input type="number" id="productQuantity" value="1" min="1" max="99">
+            </div>
+            <button type="button" class="product-detail__cart-btn">${t('delivery.addToCart')}</button>
+          </div>
+          <div class="product-detail__addons">
+            <h3 class="product-detail__title">${t('delivery.addons')}</h3>
+            <div id="product-addons">
+              ${addons.map(item => `
+                <label class="product-addon">
+                  <div class="product-addon__info">
+                    <span class="product-addon__title">${getAddonTitle(item)}</span>
+                    <span class="product-addon__price">${item.price} ₽</span>
+                  </div>
+                  <input type="checkbox" class="product-addon__checkbox" value="${item.id}">
+                </label>
+              `).join('')}
+            </div>
+          </div>
+        </div>`;
+}
+
+function renderDetail(ford) {
+  if (!productDetailInfo) return;
+  productDetailInfo.innerHTML = renderDetailText(ford);
+}
+
 
 renderTabs();
 
@@ -131,92 +169,59 @@ productCards.classList.add('hidden');
 productPage.classList.add('hidden');
 
 
-let currentProduct = null;
-
-function renderDetailText(ford) {
-  productDetailInfo.innerHTML = `<div class="product-detail__info">
-        <h1 class="product-detail__title" id="productTitle">${getItemTitle(ford)}</h1>
-        <div class="product-detail__price-row">
-          <span class="product-detail__price" id="productPrice">${ford.price}</span>
-          <span class="product-detail__weight" id="productWeight">${ford.weight}</span>
-        </div>
-        <div class="product-detail__actions">
-          <div class="product-detail__quantity">
-            <label for="productQuantity">${t('delivery.quantity')}</label>
-            <input type="number" id="productQuantity" value="1" min="1" max="99">
-          </div>
-          <button type="button" class="product-detail__cart-btn">${t('delivery.addToCart')}</button>
-        </div>
-        <div class="product-detail__addons">
-          <h3 class="product-detail__title">${t('delivery.addons')}</h3>
-          <div id="product-addons">
-            ${ford.addons.map(item => `
-              <label class="product-addon">
-                <div class="product-addon__info">
-                  <span class="product-addon__title">${getAddonTitle(item)}</span>
-                  <span class="product-addon__price">${item.price} ₽</span>
-                </div>
-                <input type="checkbox" class="product-addon__checkbox" value="${item.id}">
-              </label>
-            `).join('')}
-          </div>
-        </div>
-      </div>`;
-}
-
-function renderDetail(ford) {
-  currentProduct = ford;
-
-  leftWrapper.innerHTML = ford.thumbnails.map(thumbnail => ` <div class="swiper-slide swiper-slider">
-    <img style="width: 110px; height: 93px;" src="${thumbnail}" />
-  </div>
-  `).join('');
-
-  swiperSlideWhen.innerHTML=`<img  src=${ford.image} />`
-
-  foodMainWrapper.innerHTML += ford.thumbnails.slice(0, 1).map(thumbnail => `
-    <div class="swiper-slide swiper-slider">
-      <img src="${thumbnail}" />
-    </div>
-  `).join('');
-
-  renderDetailText(ford);
-
-  var swiper = new Swiper('.mySwiper', {
-    spaceBetween: 10,
-    slidesPerView: 4,
-  });
-
-  var swiper2 = new Swiper('.mySwiper2', {
-    spaceBetween: 10,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    thumbs: {
-      swiper: swiper,
-    },
-  });
-}
-
 if (id) {
   productPage.classList.remove('hidden');
 
   const ford = menuItems.find(item => item.id == id);
 
   if (ford) {
+    currentProduct = ford;
+
+    leftWrapper.innerHTML = ford.thumbnails.map(thumbnail => ` <div class="swiper-slide swiper-slider">
+      <img style="width: 110px; height: 93px;" src="${thumbnail}" />
+    </div>
+    `).join('');
+
+    swiperSlideWhen.innerHTML=`<img  src=${ford.image} />`
+
+    foodMainWrapper.innerHTML += ford.thumbnails.slice(0, 1).map(thumbnail => `
+      <div class="swiper-slide swiper-slider">
+        <img src="${thumbnail}" />
+      </div>
+    `).join('');
+
+
     renderDetail(ford);
+
+
+    var swiper = new Swiper('.mySwiper', {
+      spaceBetween: 10,
+      slidesPerView: 4,
+    });
+
+    var swiper2 = new Swiper('.mySwiper2', {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: swiper,
+      },
+    });
   }
 }
 
 
 document.addEventListener('languageChanged', () => {
   renderTabs();
-
-  if (currentProduct) {
-    renderDetailText(currentProduct);
-  } else if (currentCategory) {
+  if (currentCategory) {
     categoryFilter(currentCategory);
+  } else {
+    productCards.classList.add('hidden');
+  }
+  if (currentProduct) {
+    renderDetail(currentProduct);
   }
 });
 

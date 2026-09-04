@@ -33,6 +33,13 @@ const translations = {
     'contacts.fromPavlovsk': 'из города <br> Павловск',
     'footer.privacy': 'Политика конфиденциальности',
     'footer.design': 'Дизайн d-e-n.ru',
+    'map.address': 'Санкт-Петербург, Северная дорога, 11',
+    'map.workHours': 'Время работы',
+    'map.sunThu': 'Вск-Чт',
+    'map.friSat': 'Пт-Сб',
+    'map.hours1': 'с 12:00 до 23:00',
+    'map.hours2': 'с 12:00 до 03:00',
+    'map.askQuestion': 'Задать вопрос',
     'modal.title': 'ЗАБРОНИРОВАТЬ СТОЛИК',
     'modal.name': 'Имя',
     'modal.phone': 'Телефон',
@@ -103,6 +110,13 @@ const translations = {
     'contacts.fromPavlovsk': 'from the city <br> of Pavlovsk',
     'footer.privacy': 'Privacy policy',
     'footer.design': 'Design d-e-n.ru',
+    'map.address': 'St. Petersburg, Severnaya doroga, 11',
+    'map.workHours': 'Working hours',
+    'map.sunThu': 'Sun-Thu',
+    'map.friSat': 'Fri-Sat',
+    'map.hours1': 'from 12:00 to 23:00',
+    'map.hours2': 'from 12:00 to 03:00',
+    'map.askQuestion': 'Ask a question',
     'modal.title': 'BOOK A TABLE',
     'modal.name': 'Name',
     'modal.phone': 'Phone',
@@ -173,6 +187,13 @@ const translations = {
     'contacts.fromPavlovsk': 'Pavlovsk shahridan',
     'footer.privacy': 'Maxfiylik siyosati',
     'footer.design': 'Dizayn d-e-n.ru',
+    'map.address': 'Sankt-Peterburg, Severnaya doroga, 11',
+    'map.workHours': 'Ish vaqti',
+    'map.sunThu': 'Yak-Pay',
+    'map.friSat': 'Jum-Shan',
+    'map.hours1': '12:00 dan 23:00 gacha',
+    'map.hours2': '12:00 dan 03:00 gacha',
+    'map.askQuestion': 'Savol berish',
     'modal.title': 'STOL BRON QILISH',
     'modal.name': 'Ism',
     'modal.phone': 'Telefon',
@@ -478,3 +499,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initLanguageSwitcher();
   applyTranslations();
 });
+
+window.t = t;
+window.getItemTitle = getItemTitle;
+window.getAddonTitle = getAddonTitle;
+window.getCategoryName = getCategoryName;

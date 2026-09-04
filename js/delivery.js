@@ -24,7 +24,6 @@ function getCategoryLabel(cat) {
   return t(categoryKeys[cat.id]) || cat.name;
 }
 
-
 function renderProducts(items) {
   productCards.innerHTML = items.map(item => `
     <a href="food.html?item=${item.id}" class="product-card__item">
@@ -119,6 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
+let currentCategory = null;
+
 function categoryFilter(categoryName) {
   const filtered = menuItems.filter(
     item => item.category.trim() === categoryName.trim()
@@ -138,8 +139,6 @@ function categoryFilter(categoryName) {
 
 window.categoryFilter = categoryFilter;
 
-
-let currentCategory = null;
 
 function renderTabs() {
   deleveryLinks.innerHTML = menuCategories.map(category => `
