@@ -1,7 +1,6 @@
 import { menuItems } from './menu-data.js'
 import { menuCategories } from './menu-data.js';
 
-
 const id = new URLSearchParams(window.location.search).get('item')
 let deleveryLinks = document.getElementById("categoriesNav")
 let productPage = document.getElementById("productPage")
@@ -31,7 +30,6 @@ function getCategoryLabel(cat) {
   return t(categoryKeys[cat.id]) || cat.name;
 }
 
-
 // ===== Mobile Menu =====
 
 const openMobileBtn = document.getElementById('openMobileMenu');
@@ -41,7 +39,7 @@ const mobileMenu = document.getElementById('mobileMenu');
 const openModalFromMenu = document.getElementById('openModalFromMenu');
 
 if (closeMobileBtn && mobileMenu) {
-  
+
   const openMobileMenuHandler = (e) => {
     e.preventDefault();
     mobileMenu.classList.add('active');
@@ -66,7 +64,6 @@ if (closeMobileBtn && mobileMenu) {
   }
 }
 
-
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     if (modal) modal.classList.remove('active');
@@ -76,6 +73,11 @@ document.addEventListener('keydown', (e) => {
 
 
 function renderProducts(items) {
+  if (!items || items.length === 0) {
+    productCards.innerHTML = `<p class="empty-category">${t('delivery.empty') || 'Bu kategoriyada mahsulot topilmadi'}</p>`;
+    return;
+  }
+
   productCards.innerHTML = items.map(item => `
     <a href="food.html?item=${item.id}" class="product-card__item">
       <img class="product-card__image" src="${item.image}" alt="${getItemTitle(item)}">
@@ -102,15 +104,19 @@ function renderTabs() {
   `).join('');
 }
 
-function categoryFilter(categoryName) {
+renderTabs();
+
+function categoryFilter(categoryName) { 
   const filtered = menuItems.filter(
-    item => item.category.trim() === categoryName.trim()
+    item => (item.category || '').toString().trim() === categoryName.toString().trim()
   );
+
 
   currentCategory = categoryName;
 
-  productPage.innerHTML = ''
-  productDetailInfo.innerHTML = ''
+  productPage.innerHTML = '';
+  productDetailInfo.innerHTML = '';
+  productPage.classList.add('hidden');
 
   productCards.classList.remove('hidden');
   renderProducts(filtered);
@@ -166,13 +172,13 @@ renderTabs();
 
 productCards = document.getElementById("productCards");
 productCards.classList.add('hidden');
-productPage.classList.add('hidden');
 
+const defaultItem = menuItems.find(item => item.id == id) || menuItems[0];
 
-if (id) {
+if (defaultItem) {
   productPage.classList.remove('hidden');
 
-  const ford = menuItems.find(item => item.id == id);
+  const ford = defaultItem;
 
   if (ford) {
     currentProduct = ford;
@@ -224,10 +230,3 @@ document.addEventListener('languageChanged', () => {
     renderDetail(currentProduct);
   }
 });
-
-
-
-
-
-
-

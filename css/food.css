@@ -1,6 +1,7 @@
 #productPage{
     width: 400px;
     display: flex;
+    margin: 0 20%;
 }
 .productpage_left{
     display: flex;
@@ -8,6 +9,8 @@
     gap: 20px;
 
 }
+
+
 
 .swiper.food-thumb-slider {
     width: 100%;

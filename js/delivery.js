@@ -1,8 +1,4 @@
-
-
-
 import { menuCategories, menuItems } from "./menu-data.js";
-
 const deleveryLinks = document.getElementById("categoriesNav");
 const productCards = document.querySelector(".product-card");
 
@@ -65,8 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   
-    
-
     const openModalMobile = document.getElementById('openModalMobile');
     if (openModalMobile && modal) {
       openModalMobile.addEventListener('click', () => {
@@ -75,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     // ===== Mobile Menu =====
-    
     const openMobileBtn = document.getElementById('openMobileMenu');
     const openMobileBtnNav = document.getElementById('openMobileMenuNav'); // yangi qo'shildi
     const closeMobileBtn = document.querySelector('#closeMobileMenu');
@@ -108,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
-    
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         if (modal) modal.classList.remove('active');
@@ -121,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let currentCategory = null;
 
 function categoryFilter(categoryName) {
+  console.log(categoryName);
   const filtered = menuItems.filter(
     item => item.category.trim() === categoryName.trim()
   );
@@ -136,9 +129,7 @@ function categoryFilter(categoryName) {
   });
 }
 
-
 window.categoryFilter = categoryFilter;
-
 
 function renderTabs() {
   deleveryLinks.innerHTML = menuCategories.map(category => `
@@ -150,9 +141,7 @@ function renderTabs() {
 
 renderTabs();
 
-
 renderProducts(menuItems);
-
 
 document.addEventListener('languageChanged', () => {
   renderTabs();
