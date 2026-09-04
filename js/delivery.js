@@ -121,8 +121,7 @@ function categoryFilter(categoryName) {
   currentCategory = categoryName;
   renderProducts(filtered);
 
-  const contactsSection = document.getElementById('contactsSection');
-  if (contactsSection) contactsSection.classList.add('hidden');
+  
 
   deleveryLinks.querySelectorAll('.tab').forEach(tab => {
     tab.classList.toggle('active', tab.dataset.category === categoryName);
