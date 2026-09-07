@@ -137,8 +137,8 @@
                     <span data-i18n="map.hours2">с 12:00 до 03:00</span>
                     </div>
                    <div class="map-btns">
-                     <button id="openModalFromMenu" class="wrapper-navbar__btn sidebar-book-btn" type="button"
-                    data-i18n="nav.bookTable">Бронь столика</button>
+                       <button class="wrapper-navbar__btn sidebar-book-btn" type="button"
+                           data-i18n="nav.bookTable" data-open-modal="bookingModal">Бронь столика</button>
                      <a style="text-decoration: none;" href="" class="bron-stol" data-i18n="map.askQuestion"
                     >Задать вопрос</a>
                    </div>
@@ -183,7 +183,7 @@
                 </ul>
             </nav>
     
-            <button class="mobile-menu-btn" id="openModalMobile" data-i18n="nav.bookTable">
+            <button class="mobile-menu-btn" data-i18n="nav.bookTable" data-open-modal="bookingModal">
                 Бронь столика
             </button>
     
@@ -212,7 +212,7 @@
                 <input type="tel" name="phone" data-i18n-placeholder="modal.phone" placeholder="Телефон" required>
 
                 <div class="modal-row">
-                    <input type="number" name="guests" data-i18n-placeholder="modal.guests" placeholder="Гостей" min="1"
+                    <input name="guests" data-i18n-placeholder="modal.guests" placeholder="Гостей" 
                         required>
                     <input type="text" name="time" data-i18n-placeholder="modal.time" placeholder="Время" required>
                 </div>
@@ -221,71 +221,13 @@
             </form>
         </div>
     </div>
-    <!-- ===== Mobile Menu ===== -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-content">
-
-            <div class="mobile-menu-logo">
-                <img src="./images/logo.png" alt="FOOD">
-                <br>
-                <button class="mobile-menu-close" id="closeMobileMenu" data-i18n-aria="modal.close"
-                    aria-label="Закрыть">×</button>
-
-            </div>
-
-            <div data-lang-select="mobile"></div>
-
-            <nav class="mobile-menu-nav">
-                <ul>
-                   
-                    <li><a href="delivery.html" data-open-delivery data-i18n="nav.delivery">Доставка</a></li>
-                    <li><a href="#payment" data-i18n="nav.payment">Оплата</a></li>
-                </ul>
-            </nav>
-
-            <button class="mobile-menu-btn" id="openModalMobile" data-i18n="nav.bookTable">
-                Бронь столика
-            </button>
-
-            <div class="mobile-menu-socials">
-                <a href="https://www.youtube.com/"><img src="./images/Youtube.png" alt="YouTube"></a>
-                <a href="https://vk.ru/"><img src="./images/Vk.png" alt="VK"></a>
-                <a href="https://telegram.org/"><img src="./images/telegram.png" alt="Telegram"></a>
-            </div>
-        </div>
-    </div>
+    
+   
 
 
 
 
-    <script>
-      (function () {
-        var modal = document.getElementById('bookingModal');
-        var openBtn = document.getElementById('openModalFromMenu');
-        var closeBtn = document.getElementById('closeModal');
-
-        if (openBtn && modal) {
-          openBtn.addEventListener('click', function () {
-            modal.classList.add('active');
-          });
-        }
-        if (closeBtn && modal) {
-          closeBtn.addEventListener('click', function () {
-            modal.classList.remove('active');
-          });
-        }
-        if (modal) {
-          modal.addEventListener('click', function (e) {
-            if (e.target === modal) {
-              modal.classList.remove('active');
-            }
-          });
-          document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') modal.classList.remove('active');
-          });
-        }
-      })();
-    </script>
+    
 
     <script src="./js/i18n.js"></script>
     <script type="module" src="./js/menu-data.js"></script>

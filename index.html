@@ -18,14 +18,14 @@
                     <img src="./images/logo.png" alt="Logo">
 
                 </a>
-                <a href="#" id="openMobileMenu">
+                <a href="" id="openMobileMenu">
                     <img src="./images/burger-menu.png" alt="Logo">
                 </a>
 
             </div>
             <div class="sidebar-actions">
-                <button id="openModalMobile" class="wrapper-navbar__btn sidebar-book-btn" type="button"
-                    data-i18n="nav.bookTable">Бронь столика</button>
+                <button class="wrapper-navbar__btn sidebar-book-btn" type="button"
+                    data-i18n="nav.bookTable" data-open-modal="bookingModal">Бронь столика</button>
                 <div data-lang-select="header"></div>
             </div>
             <div class="sidebar-links">
@@ -49,8 +49,8 @@
                             <a class="wrapper-navbar-link" href="#payment" data-i18n="nav.payment">Оплата</a>
                         </li>
                         <li>
-                            <button id="openModal" class="wrapper-navbar__btn" type="button"
-                                data-i18n="nav.bookTable">Бронь столика</button>
+                            <button class="wrapper-navbar__btn" type="button"
+                                data-i18n="nav.bookTable" data-open-modal="bookingModal">Бронь столика</button>
                         </li>
                         <li class="wrapper-navbar-lang">
                             <div data-lang-select="hero"></div>
@@ -257,8 +257,8 @@
                     <span data-i18n="map.hours2">с 12:00 до 03:00</span>
                     </div>
                    <div class="map-btns">
-                     <button id="openModalFromMenu" class="wrapper-navbar__btn sidebar-book-btn" type="button"
-                    data-i18n="nav.bookTable">Бронь столика</button>
+                       <button class="wrapper-navbar__btn sidebar-book-btn" type="button"
+                           data-i18n="nav.bookTable" data-open-modal="bookingModal">Бронь столика</button>
                      <a style="text-decoration: none;" href="#" class="bron-stol" data-i18n="map.askQuestion"
                     >Задать вопрос</a>
                    </div>
@@ -292,7 +292,7 @@
                 <input type="tel" name="phone" data-i18n-placeholder="modal.phone" placeholder="Телефон" required>
 
                 <div class="modal-row">
-                    <input type="number" name="guests" data-i18n-placeholder="modal.guests" placeholder="Гостей" min="1"
+                    <input  name="guests" data-i18n-placeholder="modal.guests" placeholder="Гостей" 
                         required>
                     <input type="text" name="time" data-i18n-placeholder="modal.time" placeholder="Время" required>
                 </div>
@@ -324,7 +324,7 @@
                 </ul>
             </nav>
 
-            <button class="mobile-menu-btn" id="openModalMobile" data-i18n="nav.bookTable">
+            <button class="mobile-menu-btn" data-i18n="nav.bookTable" data-open-modal="bookingModal">
                 Бронь столика
             </button>
 
