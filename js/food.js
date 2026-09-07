@@ -149,7 +149,18 @@ function renderDetailText(ford) {
           <div class="product-detail__actions">
             <div class="product-detail__quantity">
               <label for="productQuantity">${t('delivery.quantity')}</label>
-              <input type="number" id="productQuantity" value="1" min="1" max="99">
+              <div class="quantity-box">
+                <span class="quantity-value" id="value3">1</span>
+                <input type="number" id="hiddenInput3" value="1" min="0" style="display:none;">
+                <div class="spin-buttons">
+                  <button type="button" id="increase3" aria-label="Oshirish">
+                    <img src="./images/next.png" alt="Logo">
+                  </button>
+                  <button type="button" id="decrease3" aria-label="Kamaytirish">
+                    <img src="./images/prew.png" alt="Logo">
+                  </button>
+                </div>
+              </div>
             </div>
             <button type="button" class="product-detail__cart-btn">${t('delivery.addToCart')}</button>
           </div>
@@ -170,9 +181,36 @@ function renderDetailText(ford) {
         </div>`;
 }
 
+function attachQuantityHandlers() {
+  const valueEl = document.getElementById('value3');
+  const hiddenInput = document.getElementById('hiddenInput3');
+  const increaseBtn = document.getElementById('increase3');
+  const decreaseBtn = document.getElementById('decrease3');
+
+  if (!valueEl || !hiddenInput || !increaseBtn || !decreaseBtn) return;
+
+  let count = parseInt(hiddenInput.value) || 1;
+
+  function update() {
+    valueEl.textContent = count;
+    hiddenInput.value = count;
+  }
+
+  increaseBtn.addEventListener('click', () => {
+    count++;
+    update();
+  });
+
+  decreaseBtn.addEventListener('click', () => {
+    if (count > 0) count--;
+    update();
+  });
+}
+
 function renderDetail(ford) {
   if (!productDetailInfo) return;
   productDetailInfo.innerHTML = renderDetailText(ford);
+  attachQuantityHandlers();
 }
 
 

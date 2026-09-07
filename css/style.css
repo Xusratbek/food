@@ -902,6 +902,8 @@ body {
     margin-bottom: 0;
     transition: background 0.2s;
     flex-shrink: 0;
+    position: relative;
+    top: 24px;
 }
 
 .product-detail__cart-btn:hover {
