@@ -150,8 +150,7 @@ function renderDetailText(ford) {
             <div class="product-detail__quantity">
               <label for="productQuantity">${t('delivery.quantity')}</label>
               <div class="quantity-box">
-                <span class="quantity-value" id="value3">1</span>
-                <input type="number" id="hiddenInput3" value="1" min="0" style="display:none;">
+                <input type="number" class="quantity-value" id="hiddenInput3" value="1" min="0" inputmode="numeric">
                 <div class="spin-buttons">
                   <button type="button" id="increase3" aria-label="Oshirish">
                     <img src="./images/next.png" alt="Logo">
@@ -182,30 +181,37 @@ function renderDetailText(ford) {
 }
 
 function attachQuantityHandlers() {
-  const valueEl = document.getElementById('value3');
-  const hiddenInput = document.getElementById('hiddenInput3');
+  const input = document.getElementById('hiddenInput3');
   const increaseBtn = document.getElementById('increase3');
   const decreaseBtn = document.getElementById('decrease3');
 
-  if (!valueEl || !hiddenInput || !increaseBtn || !decreaseBtn) return;
+  if (!input || !increaseBtn || !decreaseBtn) return;
 
-  let count = parseInt(hiddenInput.value) || 1;
-
-  function update() {
-    valueEl.textContent = count;
-    hiddenInput.value = count;
+  function clamp(val) {
+    let n = parseInt(val, 10);
+    if (isNaN(n) || n < 0) n = 0;
+    return n;
   }
 
   increaseBtn.addEventListener('click', () => {
-    count++;
-    update();
+    input.value = clamp(input.value) + 1;
   });
 
   decreaseBtn.addEventListener('click', () => {
-    if (count > 0) count--;
-    update();
+    const current = clamp(input.value);
+    if (current > 0) input.value = current - 1;
+  });
+
+  input.addEventListener('input', () => {
+    input.value = input.value.replace(/[^0-9]/g, '');
+  });
+
+  input.addEventListener('blur', () => {
+    input.value = clamp(input.value);
   });
 }
+
+
 
 function renderDetail(ford) {
   if (!productDetailInfo) return;
